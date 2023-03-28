@@ -1,15 +1,16 @@
-package geometries;
+package unittests.geometries;
 
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Vector;
+import geometries.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SphereTest {
-    Sphere sphere1 = new Sphere ( new Point(1,2,3),10 );//positive coordinate
-    Sphere sphere2 = new Sphere ( new Point(-1,-2,-3),10 );//negative coordinate
-    Sphere sphere3 = new Sphere ( new Point(-1,2,-3),10 );//positive and negative coordinate
+    Sphere sphere1 = new Sphere ( 10,new Point(1,2,3) );//positive coordinate
+    Sphere sphere2 = new Sphere ( 10,new Point(-1,-2,-3) );//negative coordinate
+    Sphere sphere3 = new Sphere ( 10,new Point(-1,2,-3) );//positive and negative coordinate
     Point p1 = new Point(1,5,8);//positive coordinate
     Point p2 = new Point(-1,-2,-4);//negative coordinate
     Point p3 = new Point(1,2,-7);//positive and negative coordinate

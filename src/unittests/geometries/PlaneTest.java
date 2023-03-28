@@ -1,12 +1,10 @@
-package geometries;
+package unittests.geometries;
 
 import org.junit.jupiter.api.Test;
-import primitives.Point;
-import primitives.Vector;
+import primitives.*;
+import geometries.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-
 class PlaneTest {
 
     @Test
@@ -44,6 +42,6 @@ class PlaneTest {
         assertEquals(new Vector(-0,-0,-1), pl.getNormal(new Point(0, 1, 0)), "Bad normal to plane");
 
         // TC02: normal length (1)
-        assertEquals(1d, pl.getNormalVector().length(), "ERROR: Normal diffrent than 1");
+        assertEquals(1d, pl.getNormal().length(), "ERROR: Normal diffrent than 1");
     }
 }

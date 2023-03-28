@@ -13,7 +13,7 @@ public class Plane implements Geometry{
      * @param point2
      * @param point3
      */
-    Plane (Point point1, Point point2, Point point3) {
+    public Plane (Point point1, Point point2, Point point3) {
         point = point1;
         normal = null;
     }

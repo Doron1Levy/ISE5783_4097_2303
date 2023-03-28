@@ -1,8 +1,8 @@
-package primitives;
+package unittests.primitives;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import primitives.*;
 
 /**
  * Testing Point

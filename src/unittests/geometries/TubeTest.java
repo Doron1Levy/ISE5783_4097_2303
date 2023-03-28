@@ -1,11 +1,9 @@
-package geometries;
+package unittests.geometries;
 
 import org.junit.jupiter.api.Test;
-import primitives.Point;
-import primitives.Ray;
-import primitives.Vector;
+import primitives.*;
+import geometries.*;
 
-import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TubeTest {
@@ -17,7 +15,7 @@ class TubeTest {
     void getNormal() {
 
         Ray r = new Ray(new Point(0,0,0), new Vector(0,0,1));
-        Tube t = new Tube(r, Math.sqrt(2));
+        Tube t = new Tube(Math.sqrt(2), r);
 
         // =============== Equivalence Partitions Tests ==============
         // TC01: simple check
