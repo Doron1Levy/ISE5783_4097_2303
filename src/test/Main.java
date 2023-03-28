@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-//doron levy 315554097 aharon doytch 
-
-
 package test;
 
 import static java.lang.System.out;
@@ -183,4 +179,3 @@ public final class Main {
       out.println("If there were no any other outputs - all tests succeeded!");
    }
 }
->>>>>>> f20b99987fdd61c19c45301d926436a35e0058da
