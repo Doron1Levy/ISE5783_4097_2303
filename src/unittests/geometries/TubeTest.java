@@ -13,15 +13,15 @@ class TubeTest {
 	 */
 	@Test
 	void getNormal() {
-		Ray r = new Ray(Point.ZERO, new Vector(0, 0, 1));
-		Tube t = new Tube(Math.sqrt(2), r);
+		Ray ray = new Ray(Point.ZERO, new Vector(0, 0, 1));
+		Tube tube = new Tube(Math.sqrt(2), ray);
 
 		// =============== Equivalence Partitions Tests ==============
 		// TC01: simple check
-		assertEquals(new Vector(1, 1, 0), t.getNormal(new Point(1, 1, 2)), "the normal is not correct");
+		assertEquals(new Vector(1, 1, 0), tube.getNormal(new Point(1, 1, 2)), "the normal is not correct");
 
 		// =============== Boundary Values Tests ==================
 		// TC11: checking if the
-		assertEquals(new Vector(1, 1, 0), t.getNormal(new Point(1, 1, 1)), "the normal is not correct");
+		assertEquals(new Vector(1, 1, 0), tube.getNormal(new Point(1, 1, 1)), "the normal is not correct");
 	}
 }

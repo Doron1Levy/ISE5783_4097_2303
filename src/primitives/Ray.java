@@ -51,14 +51,9 @@ public class Ray {
 	 * @return boolean
 	 */
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		if (o != null)
-			;
-		if (!(o instanceof Ray))
-			return false;
-		Ray ray = (Ray) o;
-		return point.equals(ray.point) && vector.equals(ray.vector);
+		return (obj instanceof Ray ray) && point.equals(ray.point) && vector.equals(ray.vector);
 	}
 }

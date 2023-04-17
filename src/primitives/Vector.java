@@ -3,7 +3,7 @@ package primitives;
 public class Vector extends Point {
 
 	/**
-	 * constructor (using super constructor)
+	 * constructor get 3 double check if that points are not create the ZERO vector (using super constructor) 
 	 * 
 	 * @param x
 	 * @param y
@@ -17,7 +17,7 @@ public class Vector extends Point {
 	}
 
 	/**
-	 * constructor (using super constructor)
+	 * constructor get Double3 object check if that points are not create the ZERO vector (using super constructor)
 	 * 
 	 * @param xyz
 	 */
@@ -79,7 +79,7 @@ public class Vector extends Point {
 	 * @return Scalar product result
 	 */
 	public double dotProduct(Vector vector) {
-		return this.xyz.d1 + this.xyz.d2 + this.xyz.d3;
+		return this.xyz.d1 * vector.xyz.d1 + this.xyz.d2 * vector.xyz.d2 + this.xyz.d3 * vector.xyz.d3;
 	}
 
 	/**

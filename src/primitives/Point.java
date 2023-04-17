@@ -21,7 +21,7 @@ public class Point {
 	 * 
 	 * @param xyz contain 3 coordinates
 	 */
-	public Point(Double3 xyz) {
+	Point(Double3 xyz) {
 		this.xyz = xyz;
 	}
 
@@ -41,8 +41,8 @@ public class Point {
 	 * @param vec the vector to add
 	 * @return new point
 	 */
-	public Point add(Vector vec) {
-		return new Point(this.xyz.add(vec.xyz));
+	public Point add(Vector vector) {
+		return new Point(this.xyz.add(vector.xyz));
 	}
 
 	/**
@@ -50,10 +50,10 @@ public class Point {
 	 * 
 	 * @return square length between two points
 	 */
-	public double distanceSquared(Point p) {
-		double dx = this.xyz.d1 - p.xyz.d1;
-		double dy = this.xyz.d2 - p.xyz.d2;
-		double dz = this.xyz.d3 - p.xyz.d3;
+	public double distanceSquared(Point point) {
+		double dx = this.xyz.d1 - point.xyz.d1;
+		double dy = this.xyz.d2 - point.xyz.d2;
+		double dz = this.xyz.d3 - point.xyz.d3;
 		return dx * dx + dy * dy + dz * dz;
 	}
 
@@ -62,8 +62,8 @@ public class Point {
 	 * 
 	 * @return length between two points
 	 */
-	public double distance(Point p) {
-		return Math.sqrt(distanceSquared(p));
+	public double distance(Point point) {
+		return Math.sqrt(distanceSquared(point));
 	}
 
 	@Override

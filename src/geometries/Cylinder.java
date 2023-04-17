@@ -31,22 +31,24 @@ public class Cylinder extends Tube {
 	 * @param point
 	 * @return The normal of the cylinder at the point sent
 	 */
-	@Override
-	public Vector getNormal(Point point) {
-		// the point in the other base
-		Point baseHead = this.axisRay.getPoint().add(this.axisRay.getVector().scale(this.height));
-		// checking if the point is on the base, if not it returns tube's normal. and if
-		// does
-		// it returns the same vector like the vector of ray.
-		// ofcourse we assume that the point on the cylinder.
-		if (point.subtract(this.axisRay.getPoint()).dotProduct(this.axisRay.getVector()) != 0
-				|| point.subtract(baseHead).dotProduct(this.axisRay.getVector()) != 0) {
-			return super.getNormal(point);
-		} else {
-			return this.axisRay.getVector();
-		}
+	 @Override
+	    public Vector getNormal(Point point) {
 
-	}
+	        Point p0 = getAxisRay().getPoint();
+	        Vector dir = getAxisRay().getVector();
+	        Point pTop = p0.add(dir.scale(getHeight()));
+
+	        //if the point is at the top of the cylinder
+	        if (point.equals(pTop) || Util.isZero(dir.dotProduct(point.subtract(pTop))))
+	            return dir;
+
+	        //if the point is at the base of the cylinder
+	        if (point.equals(p0) || Util.isZero(dir.dotProduct(point.subtract(p0))))
+	            return dir.scale(-1);
+
+	        return super.getNormal(point);
+	    }
+
 
 	@Override
 	public String toString() {

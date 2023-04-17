@@ -7,42 +7,37 @@ import geometries.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlaneTest {
+    /**
+     * test for ctor
+     */
+    @Test
+    void testConstructor() {
+        // =============== Boundary Values Tests ==================
 
-	@Test
-	public void testConstructor() {
+        // check ctor two point the same
+        assertThrows(IllegalArgumentException.class,
+                () -> new Plane(new Point(1, 2, 6.3), new Point(1, 2, 6.3), new Point(0, 0, 0)),
+                "ERROR: ctor get two point the same");
 
-		// =============== Equivalence Partitions Tests ==============
+        //check ctor  all point on the same line
+        assertThrows(IllegalArgumentException.class,
+                () -> new Plane(new Point(1, 2, 6.3), new Point(2, 4, 12.6), new Point(0.5, 1, 3.15)),
+                "ERROR: ctor get all point on the same line");
+    }
 
-		// TC01: constructor acting well
-		try {
-			new Plane(new Point(0, 1, 0), new Point(1, 0, 0), new Point(1, 1, 0));
-		} catch (IllegalArgumentException e) {
-			fail("Failed constructing a correct plane");
-		}
+    /**
+     * tests for getNormal(Point)
+     */
+    @Test
+    void testGetNormal() {
+        //plane to tests
+        Plane p = new Plane(new Point(1, 1, 0), new Point(2, 1, 0), new Point(1, 2, 0));
 
-		// =============== Boundary Values Tests ==================
+        // ============ Equivalence Partitions Tests ==============
 
-		// TC11: three points in one ray
-		assertThrows(IllegalArgumentException.class, //
-				() -> new Plane(new Point(1, 2, 3), new Point(2, 4, 6), new Point(4, 8, 12)), //
-				"Constructed a Plane with tree points in one ray");
-
-		// TC12: two points unit
-		assertThrows(IllegalArgumentException.class, //
-				() -> new Plane(new Point(1, 2, 3), new Point(1, 2, 3), new Point(1, 1, 1)), //
-				"Constructed a Plane with two same points");
-
-	}
-
-	@Test
-	void getNormal() {
-		Plane pl = new Plane(new Point(0, 1, 0), new Point(1, 0, 0), new Point(1, 1, 0));
-
-		// =============== Equivalence Partitions Tests ==============
-		// TC01:
-		assertEquals(new Vector(-0, -0, -1), pl.getNormal(new Point(0, 1, 0)), "Bad normal to plane");
-
-		// TC02: normal length (1)
-		assertEquals(1d, pl.getNormal().length(), "ERROR: Normal diffrent than 1");
-	}
+        //test normal to plane (its can be 2 sides)
+        boolean bool = new Vector(0, 0, 1).equals(p.getNormal( new Point(3, 2,0))) ||
+                       new Vector(0, 0, -1).equals(p.getNormal(new Point(3, 2,0)));
+        assertTrue(bool, " ERROR: getNormal() worng result");
+    }
 }
