@@ -8,18 +8,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlaneTest {
     /**
-     * test for ctor
+     * test for constructor
      */
     @Test
     void testConstructor() {
         // =============== Boundary Values Tests ==================
 
-        // check ctor two point the same
+        // check constructor two point the same
         assertThrows(IllegalArgumentException.class,
                 () -> new Plane(new Point(1, 2, 6.3), new Point(1, 2, 6.3), new Point(0, 0, 0)),
                 "ERROR: ctor get two point the same");
 
-        //check ctor  all point on the same line
+        //check constructor  all point on the same line
         assertThrows(IllegalArgumentException.class,
                 () -> new Plane(new Point(1, 2, 6.3), new Point(2, 4, 12.6), new Point(0.5, 1, 3.15)),
                 "ERROR: ctor get all point on the same line");

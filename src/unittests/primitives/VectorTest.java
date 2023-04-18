@@ -73,7 +73,7 @@ class VectorTest {
 	 */
 	@Test
 	void lengthSquared() {
-		// negativ coordinate
+		// negative coordinate
 		assertEquals(14, vec5.lengthSquared(), "ERROR: the lengthSquared test is failed (negative coordinate)");
 		// positive coordinate
 		assertEquals(14, vec1.lengthSquared(), "ERROR: the lengthSquared test is failed (positive coordinate)");
@@ -88,11 +88,11 @@ class VectorTest {
 	 */
 	@Test
 	void length() {
-		// negativ cordinate
+		// Negative coordinate
 		assertEquals(Math.sqrt(14), vec5.length(), "ERROR: the length test is failed (negative coordinate)");
-		// positive cordinate
+		// positive coordinate
 		assertEquals(Math.sqrt(14), vec1.length(), "ERROR: the length test is failed (positive coordinate)");
-		// positive and negative cordinate
+		// positive and negative coordinate
 		assertEquals(Math.sqrt(26), vec4.length(),
 				"ERROR: the length test is failed (negative and positive coordinate)");
 	}
@@ -106,10 +106,10 @@ class VectorTest {
 		// negative coordinate
 		assertEquals(new Vector(-1 / Math.sqrt(14), -2 / Math.sqrt(14), -3 / Math.sqrt(14)), vec5.normalize(),
 				"ERROR: the normalize test is failed (negative coordinate)");
-		// positive cordinate
+		// positive coordinate
 		assertEquals(new Vector(1 / Math.sqrt(14), 2 / Math.sqrt(14), 3 / Math.sqrt(14)), vec1.normalize(),
 				"ERROR: the normalize test is failed (positive coordinate)");
-		// positive and negative cordinate
+		// positive and negative coordinate
 		assertEquals(new Vector(1 / Math.sqrt(26), 4 / Math.sqrt(26), -3 / Math.sqrt(26)), vec4.normalize(),
 				"ERROR: the normalize test is failed (negative and positive coordinate)");
 	}
