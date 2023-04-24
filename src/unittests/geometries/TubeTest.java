@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TubeTest {
 
 	/**
-	 *test get normal
+	 * test get normal
 	 */
 	@Test
 	void TestGetNormal() {
@@ -24,12 +24,12 @@ class TubeTest {
 		// TC11: checking if the
 		assertEquals(new Vector(1, 1, 0), tube.getNormal(new Point(1, 1, 1)), "the normal is not correct");
 	}
-	
+
 	/**
 	 * 
 	 */
 	@Test
 	void TestFindIntersections() {
-		
+
 	}
 }

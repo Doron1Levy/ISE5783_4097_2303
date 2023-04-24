@@ -3,7 +3,8 @@ package primitives;
 public class Vector extends Point {
 
 	/**
-	 * constructor get 3 double check if that points are not create the ZERO vector (using super constructor) 
+	 * constructor get 3 double check if that points are not create the ZERO vector
+	 * (using super constructor)
 	 * 
 	 * @param x
 	 * @param y
@@ -17,7 +18,8 @@ public class Vector extends Point {
 	}
 
 	/**
-	 * constructor get Double3 object check if that points are not create the ZERO vector (using super constructor)
+	 * constructor get Double3 object check if that points are not create the ZERO
+	 * vector (using super constructor)
 	 * 
 	 * @param xyz
 	 */
@@ -28,12 +30,6 @@ public class Vector extends Point {
 		}
 	}
 
-	/**
-	 * check if 2 arguments are equals
-	 * 
-	 * @param obj
-	 * @return boolean
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,11 +37,6 @@ public class Vector extends Point {
 		return (obj instanceof Vector) && super.equals(obj);
 	}
 
-	/**
-	 * print the vector object
-	 * 
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		return "Vector{}" + super.toString();
@@ -54,7 +45,7 @@ public class Vector extends Point {
 	/**
 	 * add vector to other vector
 	 * 
-	 * @param vector2
+	 * @param vector the other vector
 	 * @return new vector
 	 */
 	public Vector add(Vector vector) {

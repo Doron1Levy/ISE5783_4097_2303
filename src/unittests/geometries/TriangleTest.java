@@ -27,13 +27,13 @@ class TriangleTest {
 		Triangle t = new Triangle(new Point(0, 1, 0), new Point(1, 0, 0), new Point(1, 1, 0));
 		assertEquals(new Vector(-0, -0, -1), t.getNormal(new Point(0, 1, 0)), "the normal not correct!");
 	}
-	
+
 	/**
 	 * 
 	 */
 	@Test
 	void TestFindIntersections() {
-		
+
 	}
 
 }

@@ -4,7 +4,7 @@ public class Point {
 	final Double3 xyz;
 
 	static public final Point ZERO = new Point(Double3.ZERO);
-	
+
 	/**
 	 * constructor with 3 coordinates
 	 * 

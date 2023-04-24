@@ -5,6 +5,7 @@ import java.util.List;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import static primitives.Util.*;
 
 public class Tube extends RadialGeometry {
 
@@ -50,7 +51,7 @@ public class Tube extends RadialGeometry {
 		Point p0 = axisRay.getPoint();
 		Vector vector = axisRay.getVector();
 		double t = vector.dotProduct(point.subtract(p0));
-		Point o = p0.add(vector.scale(t));
+		Point o = isZero(t) ? p0 :  p0.add(vector.scale(t));
 		return point.subtract(o);
 	}
 

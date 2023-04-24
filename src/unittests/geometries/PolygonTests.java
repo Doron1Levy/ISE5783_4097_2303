@@ -91,8 +91,7 @@ public class PolygonTests {
 	 */
 	@Test
 	void TestFindIntersections() {
-		
+
 	}
 
 }
-
