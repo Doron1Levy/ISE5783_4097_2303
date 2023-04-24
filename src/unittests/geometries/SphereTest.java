@@ -36,4 +36,13 @@ class SphereTest {
 		assertEquals(new Vector(2 / Math.sqrt(20), 0 / Math.sqrt(20), -4 / Math.sqrt(20)), sphere3.getNormal(p3),
 				"ERROR:normal test of sphere (positive and negative coordinate sphere and point)");
 	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	void TestFindIntersections() {
+		
+	}
+
 }

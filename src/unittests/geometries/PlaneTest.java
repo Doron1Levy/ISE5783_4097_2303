@@ -40,4 +40,13 @@ class PlaneTest {
                        new Vector(0, 0, -1).equals(p.getNormal(new Point(3, 2,0)));
         assertTrue(bool, " ERROR: getNormal() worng result");
     }
+    
+    /**
+	 * 
+	 */
+	@Test
+	void TestFindIntersections() {
+		
+	}
+
 }

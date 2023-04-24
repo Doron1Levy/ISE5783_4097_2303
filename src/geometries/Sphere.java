@@ -1,6 +1,9 @@
 package geometries;
 
+import java.util.List;
+
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
 public class Sphere extends RadialGeometry {
@@ -44,6 +47,12 @@ public class Sphere extends RadialGeometry {
 	@Override
 	public String toString() {
 		return "Sphere{" + "center=" + center + ", radius=" + radius + '}';
+	}
+
+	@Override
+	public List<Point> findIntsersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
