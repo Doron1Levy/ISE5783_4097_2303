@@ -13,17 +13,17 @@ class PointTest {
 	Vector v1 = new Vector(-1, -1, -1);
 
 	/**
-	 * checking if the adding work coectly
+	 * checking if the adding work correctly
 	 */
 	@Test
 	void testAdd() {
 		// =======Equivalence Partitions Tests=======
-		// TC01: testig the adding of point and vector (simple test)
+		// TC01: testing the adding of point and vector (simple test)
 		assertEquals(p1.add(v1), new Point(0, 0, 0), "the adding does not work correctly");
 	}
 
 	/**
-	 * checking if the subtracting work coectly
+	 * checking if the subtracting work correctly
 	 */
 	@Test
 	void testSubtract() {
@@ -32,12 +32,11 @@ class PointTest {
 		assertEquals(p2.subtract(p1), new Vector(1, 1, 1), "the subtracting does not work correctly");
 		
 		//======== subtraction of a point itself ========
-		assertEquals(new IllegalArgumentException() , p1.subtract(p1), "the subtracting does not work correctly");
-
+		assertThrows( IllegalArgumentException.class,()-> p1.subtract(p1), "the subtracting does not work correctly");
 	}
 
 	/**
-	 * checking if the DistanceSquared func work coectly
+	 * checking if the DistanceSquared function work correctly
 	 */
 	@Test
 	void testDistanceSquared() {
