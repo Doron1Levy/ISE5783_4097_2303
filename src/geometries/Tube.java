@@ -7,9 +7,12 @@ import primitives.Ray;
 import primitives.Vector;
 import static primitives.Util.*;
 
+/**
+ * class Tube represents tube in 3D
+ */
 public class Tube extends RadialGeometry {
 
-	final Ray axisRay;
+	private final Ray axisRay;
 
 	/**
 	 * constructor (using super constructor)
@@ -25,7 +28,7 @@ public class Tube extends RadialGeometry {
 	/**
 	 * getter
 	 * 
-	 * @return
+	 * @return axisRay
 	 */
 	public Ray getAxisRay() {
 		return axisRay;

@@ -2,6 +2,9 @@ package geometries;
 
 import primitives.Point;
 
+/**
+ * class Triangle represents two-dimensional triangle in 3D space
+ */
 public class Triangle extends Polygon {
 	/**
 	 * constructor using at father constructor

@@ -2,6 +2,9 @@ package geometries;
 
 import primitives.*;
 
+/**
+ * this class contains list of geometries
+ */
 public interface Geometry extends Intersectable {
 	/**
 	 * calculate the object normal vector at a point on the surfaces of the

@@ -6,9 +6,12 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+/**
+ * lass Sphere represents sphere in 3D space
+ */
 public class Sphere extends RadialGeometry {
 
-	final Point center;
+	protected final Point center;
 
 	/**
 	 * constructor (using super constructor)

@@ -1,5 +1,8 @@
 package primitives;
 
+/**
+ * This class  represents a point in a three-dimensional universe
+ */
 public class Point {
 	final Double3 xyz;
 

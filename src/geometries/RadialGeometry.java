@@ -3,7 +3,8 @@ package geometries;
 public abstract class RadialGeometry implements Geometry {
 
 	/**
-	 * 
+	 * An abstract class from which all bodies that
+	 *  hold a radius field inherit
 	 */
 	protected final double radius;
 

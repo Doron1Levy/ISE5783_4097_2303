@@ -6,9 +6,14 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+/**
+ * Plane class represents two-dimensional plane in 3D Cartesian coordinate
+ * system
+ */
 public class Plane implements Geometry {
-	Point point;
-	Vector normal;
+	
+	private final Point point;
+	private final Vector normal;
 
 	/**
 	 * Constructs plane by three point on the plane

@@ -1,15 +1,18 @@
 package primitives;
 
+/**
+ * Vector class represents 3D vector
+ */
 public class Vector extends Point {
 
-	/**
-	 * constructor get 3 double check if that points are not create the ZERO vector
-	 * (using super constructor)
-	 * 
-	 * @param x
-	 * @param y
-	 * @param z
-	 */
+	  /**
+     * Constructor to initialize point 3D
+     * get three double coordinates
+     *
+     * @param x first number value
+     * @param y second number value
+     * @param z third number value
+     */
 	public Vector(double x, double y, double z) {
 		super(x, y, z);
 		if (xyz.equals(Double3.ZERO)) {

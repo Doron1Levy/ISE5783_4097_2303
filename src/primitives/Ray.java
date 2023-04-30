@@ -1,5 +1,8 @@
 package primitives;
 
+/**
+ * Ray class represents 3D ray
+ */
 public class Ray {
 
 	final Point point;
@@ -8,8 +11,8 @@ public class Ray {
 	/**
 	 * simple constructor
 	 * 
-	 * @param p
-	 * @param v
+	 * @param start point
+	 * @param direction vector
 	 */
 	public Ray(Point point, Vector vector) {
 		this.point = point;
@@ -19,37 +22,26 @@ public class Ray {
 	/**
 	 * getter
 	 * 
-	 * @return
+	 * @return p0
 	 */
 	public Point getPoint() {
 		return point;
 	}
 
 	/**
-	 * getter
+	 * getter 
 	 * 
-	 * @return
+	 * @return direction vector
 	 */
 	public Vector getVector() {
 		return vector;
 	}
 
-	/**
-	 * print ray argument
-	 * 
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		return point.toString() + vector.toString(); // is that correct?
 	}
 
-	/**
-	 * check if 2 arguments are equals
-	 * 
-	 * @param o
-	 * @return boolean
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
