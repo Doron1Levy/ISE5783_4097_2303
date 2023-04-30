@@ -30,6 +30,10 @@ class PointTest {
 		// =======Equivalence Partitions Tests=======
 		// TC01: testing the subtract between two points (simple test)
 		assertEquals(p2.subtract(p1), new Vector(1, 1, 1), "the subtracting does not work correctly");
+		
+		//======== subtraction of a point itself ========
+		assertEquals(new IllegalArgumentException() , p1.subtract(p1), "the subtracting does not work correctly");
+
 	}
 
 	/**
