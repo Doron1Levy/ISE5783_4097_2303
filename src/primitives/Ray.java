@@ -5,8 +5,8 @@ package primitives;
  */
 public class Ray {
 
-	final Point point;
-	final Vector vector;
+	final Point p0;
+	final Vector direction;
 
 	/**
 	 * simple constructor
@@ -15,17 +15,17 @@ public class Ray {
 	 * @param direction vector
 	 */
 	public Ray(Point point, Vector vector) {
-		this.point = point;
-		this.vector = vector.normalize();
+		this.p0 = point;
+		this.direction = vector.normalize();
 	}
 
 	/**
-	 * getter
+	 * return the p0 point
 	 * 
 	 * @return p0
 	 */
-	public Point getPoint() {
-		return point;
+	public Point getP0() {
+		return p0;
 	}
 
 	/**
@@ -33,19 +33,19 @@ public class Ray {
 	 * 
 	 * @return direction vector
 	 */
-	public Vector getVector() {
-		return vector;
+	public Vector getDirection() {
+		return direction;
 	}
 
 	@Override
 	public String toString() {
-		return point.toString() + vector.toString(); // is that correct?
+		return p0.toString() + direction.toString(); // is that correct?
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		return (obj instanceof Ray ray) && point.equals(ray.point) && vector.equals(ray.vector);
+		return (obj instanceof Ray ray) && p0.equals(ray.p0) && direction.equals(ray.direction);
 	}
 }

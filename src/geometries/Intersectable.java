@@ -13,8 +13,8 @@ public interface Intersectable {
 	 * get ray for intersect
 	 * 
 	 * @param ray
-	 * @return al
+	 * @return intersections list between the ray and geometry object 
 	 */
-	List<Point> findIntsersections(Ray ray);
+	List<Point> findIntersections(Ray ray);
 
 }

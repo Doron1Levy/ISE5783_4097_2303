@@ -1,7 +1,5 @@
 package geometries;
 
-import java.util.List;
-
 import primitives.*;
 
 /**
@@ -42,8 +40,8 @@ public class Cylinder extends Tube {
 	@Override
 	public Vector getNormal(Point point) {
 
-		Point p0 = getAxisRay().getPoint();
-		Vector dir = getAxisRay().getVector();
+		Point p0 = getAxisRay().getP0();
+		Vector dir = getAxisRay().getDirection();
 		Point pTop = p0.add(dir.scale(getHeight()));
 
 		// if the point is at the top of the cylinder
