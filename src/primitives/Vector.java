@@ -80,10 +80,10 @@ public class Vector extends Point {
 	}
 
 	/**
-	 * vector product
+	 * cross product between to vector
 	 * 
 	 * @param vector
-	 * @return new vertical vector
+	 * @return new normalize vertical vector
 	 */
 	public Vector crossProduct(Vector vector) {
 		return new Vector(this.xyz.d3 * vector.xyz.d2 - this.xyz.d2 * vector.xyz.d3,

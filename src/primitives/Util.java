@@ -82,10 +82,10 @@ public abstract class Util {
 		// Calculate the coefficients of the quadratic equation that describes the
 		// intersection points
 		double a = rayDirection.xyz.d1 * rayDirection.xyz.d1 + rayDirection.xyz.d3 * rayDirection.xyz.d3;
-		double b = 2 * (rayOrigin.xyz.d1 - axisRay.getPoint().xyz.d1 * rayDirection.xyz.d1
-				+ 2 * (rayOrigin.xyz.d3 - axisRay.getPoint().xyz.d3) * rayDirection.xyz.d3);
-		double c = (rayOrigin.xyz.d1 - axisRay.getPoint().xyz.d1) * (rayOrigin.xyz.d1 - axisRay.getPoint().xyz.d1)
-				+ (rayOrigin.xyz.d3 - axisRay.getPoint().xyz.d3) * (rayOrigin.xyz.d3 - axisRay.getPoint().xyz.d3)
+		double b = 2 * (rayOrigin.xyz.d1 - axisRay.getP0().xyz.d1 * rayDirection.xyz.d1
+				+ 2 * (rayOrigin.xyz.d3 - axisRay.getP0().xyz.d3) * rayDirection.xyz.d3);
+		double c = (rayOrigin.xyz.d1 - axisRay.getP0().xyz.d1) * (rayOrigin.xyz.d1 - axisRay.getP0().xyz.d1)
+				+ (rayOrigin.xyz.d3 - axisRay.getP0().xyz.d3) * (rayOrigin.xyz.d3 - axisRay.getP0().xyz.d3)
 				- radius * radius;
 		return new double[] { a, b, c };
 	}

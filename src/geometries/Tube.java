@@ -52,8 +52,8 @@ public class Tube extends RadialGeometry {
 	 */
 	@Override
 	public Vector getNormal(Point point) {
-		Point p0 = axisRay.getPoint();
-		Vector vector = axisRay.getVector();
+		Point p0 = axisRay.getP0();
+		Vector vector = axisRay.getDirection();
 		double t = vector.dotProduct(point.subtract(p0));
 		Point o = isZero(t) ? p0 : p0.add(vector.scale(t));
 		return point.subtract(o);
@@ -71,12 +71,12 @@ public class Tube extends RadialGeometry {
 
 	// Method to calculate intersection points between the cylinder and a given ray
 	@Override
-	public List<Point> findIntsersections(Ray ray) {
+	public List<Point> findIntersections(Ray ray) {
 		List<Point> intersectionPoints = new ArrayList<Point>();
 
 		// Extract the origin and direction of the ray
-		Point rayOrigin = ray.getPoint();
-		Vector rayDirection = ray.getVector();
+		Point rayOrigin = ray.getP0();
+		Vector rayDirection = ray.getDirection();
 
 		// Calculate the discriminant of the quadratic equation
 		double[] abc = discriminantParam(rayDirection, rayOrigin, ray, radius);
@@ -93,8 +93,8 @@ public class Tube extends RadialGeometry {
 		double t2 = (-abc[1] + Math.sqrt(discriminant)) / (2 * abc[0]);
 
 		// Calculate the intersection points
-		Point intersectionPoint1 = ray.getPoint().add(ray.getVector().scale(t1));
-		Point intersectionPoint2 = ray.getPoint().add(ray.getVector().scale(t2));
+		Point intersectionPoint1 = ray.getP0().add(ray.getDirection().scale(t1));
+		Point intersectionPoint2 = ray.getP0().add(ray.getDirection().scale(t2));
 
 		// Add the intersection points to the list
 		intersectionPoints.add(intersectionPoint1);
