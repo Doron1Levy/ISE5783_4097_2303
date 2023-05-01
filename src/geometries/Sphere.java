@@ -11,7 +11,7 @@ import primitives.Vector;
  */
 public class Sphere extends RadialGeometry {
 
-	protected final Point center;
+	private final Point center;
 
 	/**
 	 * constructor (using super constructor)

@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import primitives.*;
 
 /**
- * Testing Point
+ * test class to check all function of Point class
+ * 
  */
 class PointTest {
 	Point p1 = new Point(1, 1, 1);
@@ -29,10 +30,10 @@ class PointTest {
 	void testSubtract() {
 		// =======Equivalence Partitions Tests=======
 		// TC01: testing the subtract between two points (simple test)
-		assertEquals(p2.subtract(p1), new Vector(1, 1, 1), "the subtracting does not work correctly");
-		
-		//======== subtraction of a point itself ========
-		assertThrows( IllegalArgumentException.class,()-> p1.subtract(p1), "the subtracting does not work correctly");
+		assertEquals(p2.subtract(p1), new Vector(1, 1, 1), "ERROR: TC01");
+
+		// ======== subtraction of a point itself ========
+		assertThrows(IllegalArgumentException.class, () -> p1.subtract(p1), "the subtracting does not work correctly");
 	}
 
 	/**

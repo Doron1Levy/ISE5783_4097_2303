@@ -11,7 +11,7 @@ import primitives.Vector;
  * system
  */
 public class Plane implements Geometry {
-	
+
 	private final Point point;
 	private final Vector normal;
 

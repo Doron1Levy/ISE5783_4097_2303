@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import primitives.*;
 
+/**
+ * test class to check all function of Vector class
+ * 
+ * @author David
+ *
+ */
 class VectorTest {
 
 	Vector vec1 = new Vector(1, 2, 3);
@@ -19,8 +25,8 @@ class VectorTest {
 	 */
 	@Test
 	public void testConstructor() {
-		assertThrows(IllegalArgumentException.class, () -> new Vector(0, 0, 0),
-				"ERROR: the constructor test is failed");
+		// TC:01 constructor test get the ZERO vector excepted to throw Exception
+		assertThrows(IllegalArgumentException.class, () -> new Vector(0, 0, 0), "ERROR: TC:01");
 	}
 
 	/**
@@ -30,19 +36,16 @@ class VectorTest {
 	@Test
 	void dotProduct() {
 		// =======Equivalence Partitions Tests=======
-		// in the same direction
-		assertEquals(28, vec1.dotProduct(vec2),
-				"ERROR: the dotProduct test is failed (Two vectors with the same direction)");
-		// sharp angle
-		assertEquals(17, vec1.dotProduct(vec3), "ERROR: the dotProduct test is failed (Two vectors with sharp angle)");
-		// Orthogonal angle
-		assertEquals(0, vec1.dotProduct(vec4),
-				"ERROR: the dotProduct test is failed (Two vectors with Orthogonal angle)");
-		// Obtuse angle
-		assertEquals(-3, vec3.dotProduct(vec4), "ERROR: the dotProduct test is failed (Two vectors with Obtuse angle)");
-		// Inverted vector
-		assertEquals(-14, vec1.dotProduct(vec5),
-				"ERROR: the dotProduct test is failed (Two vectors with Inverted direction)");
+		// TC:01 in the same direction
+		assertEquals(28, vec1.dotProduct(vec2), "ERROR: TC:01");
+		// TC:02 sharp angle
+		assertEquals(17, vec1.dotProduct(vec3), "ERROR:  TC:02");
+		// TC:03 Orthogonal angle
+		assertEquals(0, vec1.dotProduct(vec4), "ERROR:  TC:03");
+		// TC:04 Obtuse angle
+		assertEquals(-3, vec3.dotProduct(vec4), "ERROR: TC:04");
+		// TC:05 Inverted vector
+		assertEquals(-14, vec1.dotProduct(vec5), "ERROR: TC:05");
 	}
 
 	/**
@@ -51,20 +54,16 @@ class VectorTest {
 	 */
 	@Test
 	void crossProduct() {
-		assertThrows(IllegalArgumentException.class, () -> vec1.crossProduct(vec2),
-				"ERROR: the crossProduct test is failed (Two vectors with the same direction)");
-		// sharp angle
-		assertEquals(new Vector(-2, 1, 0), vec1.crossProduct(vec3),
-				"ERROR: the crossProduct test is failed (Two vectors with sharp angle)");
-		// Orthogonal angle
-		assertEquals(new Vector(18, -6, -2), vec1.crossProduct(vec4),
-				"ERROR: the crossProduct test is failed (Two vectors with Orthogonal angle)");
-		// Obtuse angle
-		assertEquals(new Vector(22, -7, -2), vec3.crossProduct(vec4),
-				"ERROR: the crossProduct test is failed (Two vectors with Obtuse angle)");
-		// Inverted vector
-		assertThrows(IllegalArgumentException.class, () -> vec1.crossProduct(vec5),
-				"ERROR: the crossProduct test is failed (Two vectors with Inverted direction)");
+		// TC:01: sharp angle
+		assertEquals(new Vector(-2, 1, 0), vec1.crossProduct(vec3), "ERROR: TC:01");
+		// TC:02 Orthogonal angle
+		assertEquals(new Vector(18, -6, -2), vec1.crossProduct(vec4), "ERROR: TC:02");
+		// TC:03 Obtuse angle
+		assertEquals(new Vector(22, -7, -2), vec3.crossProduct(vec4), "ERROR: TC:03");
+		// TC:04 Inverted vector
+		assertThrows(IllegalArgumentException.class, () -> vec1.crossProduct(vec5), "ERROR: TC:04");
+		// TC:05 Two vectors with the same direction
+		assertThrows(IllegalArgumentException.class, () -> vec1.crossProduct(vec2), "ERROR: TC:05");
 	}
 
 	/**
@@ -73,13 +72,12 @@ class VectorTest {
 	 */
 	@Test
 	void lengthSquared() {
-		// negative coordinate
-		assertEquals(14, vec5.lengthSquared(), "ERROR: the lengthSquared test is failed (negative coordinate)");
-		// positive coordinate
-		assertEquals(14, vec1.lengthSquared(), "ERROR: the lengthSquared test is failed (positive coordinate)");
-		// positive and negative coordinate
-		assertEquals(26, vec4.lengthSquared(),
-				"ERROR: the lengthSquared test is failed (negative and positive coordinate)");
+		// TC:01 negative coordinate
+		assertEquals(14, vec5.lengthSquared(), "ERROR: TC:01");
+		// TC:02 positive coordinate
+		assertEquals(14, vec1.lengthSquared(), "ERROR: TC:02");
+		// TC:03 positive and negative coordinate
+		assertEquals(26, vec4.lengthSquared(), "ERROR: TC:03");
 	}
 
 	/**
@@ -88,13 +86,8 @@ class VectorTest {
 	 */
 	@Test
 	void length() {
-		// Negative coordinate
-		assertEquals(Math.sqrt(14), vec5.length(), "ERROR: the length test is failed (negative coordinate)");
-		// positive coordinate
-		assertEquals(Math.sqrt(14), vec1.length(), "ERROR: the length test is failed (positive coordinate)");
-		// positive and negative coordinate
-		assertEquals(Math.sqrt(26), vec4.length(),
-				"ERROR: the length test is failed (negative and positive coordinate)");
+		// TC01: A test of the distance between two points in a 3D
+		assertEquals(Math.sqrt(26), vec4.length(), "ERROR: TC:01");
 	}
 
 	/**
@@ -103,14 +96,8 @@ class VectorTest {
 	 */
 	@Test
 	void normalize() {
-		// negative coordinate
+		// TC:01: A test of the vector normalize in a 3D
 		assertEquals(new Vector(-1 / Math.sqrt(14), -2 / Math.sqrt(14), -3 / Math.sqrt(14)), vec5.normalize(),
-				"ERROR: the normalize test is failed (negative coordinate)");
-		// positive coordinate
-		assertEquals(new Vector(1 / Math.sqrt(14), 2 / Math.sqrt(14), 3 / Math.sqrt(14)), vec1.normalize(),
-				"ERROR: the normalize test is failed (positive coordinate)");
-		// positive and negative coordinate
-		assertEquals(new Vector(1 / Math.sqrt(26), 4 / Math.sqrt(26), -3 / Math.sqrt(26)), vec4.normalize(),
-				"ERROR: the normalize test is failed (negative and positive coordinate)");
+				"ERROR TC:01");
 	}
 }

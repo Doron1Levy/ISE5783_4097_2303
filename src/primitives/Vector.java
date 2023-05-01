@@ -5,14 +5,13 @@ package primitives;
  */
 public class Vector extends Point {
 
-	  /**
-     * Constructor to initialize point 3D
-     * get three double coordinates
-     *
-     * @param x first number value
-     * @param y second number value
-     * @param z third number value
-     */
+	/**
+	 * Constructor to initialize point 3D get three double coordinates
+	 *
+	 * @param x first number value
+	 * @param y second number value
+	 * @param z third number value
+	 */
 	public Vector(double x, double y, double z) {
 		super(x, y, z);
 		if (xyz.equals(Double3.ZERO)) {
@@ -31,6 +30,10 @@ public class Vector extends Point {
 		if (xyz.equals(Double3.ZERO)) {
 			throw new IllegalArgumentException("ZERO vector");
 		}
+	}
+
+	public Double3 getVector() {
+		return this.xyz;
 	}
 
 	@Override

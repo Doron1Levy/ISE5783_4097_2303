@@ -8,6 +8,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * test class to check all function of cylinder class
+ * 
+ * @author David
+ *
+ */
 class CylinderTest {
 
 	/**

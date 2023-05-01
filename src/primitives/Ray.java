@@ -11,7 +11,7 @@ public class Ray {
 	/**
 	 * simple constructor
 	 * 
-	 * @param start point
+	 * @param start     point
 	 * @param direction vector
 	 */
 	public Ray(Point point, Vector vector) {
@@ -29,7 +29,7 @@ public class Ray {
 	}
 
 	/**
-	 * getter 
+	 * getter
 	 * 
 	 * @return direction vector
 	 */
