@@ -5,6 +5,7 @@ import java.util.List;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import primitives.Util;
 
 /**
  * lass Sphere represents sphere in 3D space
@@ -54,8 +55,45 @@ public class Sphere extends RadialGeometry {
 
 	@Override
 	public List<Point> findIntersections(Ray ray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		Point p0 = ray.getP0();
+		Vector v = ray.getDirection();
+		Vector u;
 
+		try {
+			u = center.subtract(p0); // p0 == center the ray start from the center of the sphere
+		} catch (IllegalArgumentException e) {
+			return List.of(Util.isZero(this.radius) ? p0 : p0.add(ray.getDirection().scale(this.radius)));
+		}
+
+		double tm = Util.alignZero(v.dotProduct(u));
+		double dSquared = u.lengthSquared() - tm * tm;
+		double thSquared = Util.alignZero(this.radius * this.radius - dSquared);
+
+		if (thSquared <= 0)
+			return null;// no intersections
+
+		double th = Util.alignZero(Math.sqrt(thSquared));
+		if (th == 0)
+			return null;// ray tangent to sphere
+
+		double t1 = Util.alignZero(tm - th);
+		double t2 = Util.alignZero(tm + th);
+
+		// ray starts after sphere
+		if (Util.alignZero(t1) <= 0 && Util.alignZero(t2) <= 0)
+			return null;
+
+		// 2 intersections
+		if (Util.alignZero(t1) > 0 && Util.alignZero(t2) > 0) {
+			// P1 , P2
+			return List.of(Util.isZero(t1) ? p0 : p0.add(ray.getDirection().scale(t1)),
+					Util.isZero(t2) ? p0 : p0.add(ray.getDirection().scale(t2)));
+		}
+
+		// 1 intersection
+		if (Util.alignZero(t1) > 0)
+			return List.of(Util.isZero(t1) ? p0 : p0.add(ray.getDirection().scale(t1)));
+		else
+			return List.of(Util.isZero(t2) ? p0 : p0.add(ray.getDirection().scale(t2)));
+	}
 }

@@ -39,7 +39,7 @@ public class Plane implements Geometry {
 	 * @param newPoint
 	 * @param newVerticalVvector
 	 */
-	Plane(Point point, Vector normal) {
+	public Plane(Point point, Vector normal) {
 		this.p0 = point;
 		this.normal = normal.normalize();
 	}
@@ -87,33 +87,42 @@ public class Plane implements Geometry {
 	public List<Point> findIntersections(Ray ray) {
 		Point rayP0 = ray.getP0();
 		Vector rayDirection = ray.getDirection();
-		
+
+		// Ray starts begins in the same point which appears as reference point in the
+		// plane (0 points)
+		if (rayP0 == this.p0)
+			return null;
+
 		/**
 		 * calculate the dotProduct between the ray direction and normal plane
 		 */
 		double dotProduct = this.normal.dotProduct(rayDirection);
-		
-		// Checking whether the plane and the ray intersect each other or are parallel to each other
-		if(Util.isZero(dotProduct)) {
+
+		// Checking whether the plane and the ray intersect each other or are parallel
+		// to each other
+		if (Util.isZero(dotProduct)) {
 			return null;
 		}
-		
+
 		// direction to plane p0 from ray p0
 		Vector p0direction = p0.subtract(rayP0);
-		
-		/** checking if direction of ray is to plane
-		 * if directionRayScale < 0 the ray direction of the beam is not to the surface of plane
-		 * if directionRayScale = 0 the ray is on surface of plane
-		 * if directionRayScale > 0 the ray direction of the beam is cut the surface of plane
+
+		/**
+		 * checking if direction of ray is to plane if directionRayScale < 0 the ray
+		 * direction of the beam is not to the surface of plane if directionRayScale = 0
+		 * the ray is on surface of plane if directionRayScale > 0 the ray direction of
+		 * the beam is cut the surface of plane
 		 */
-		double directionRayScale = Util.alignZero(this.normal.dotProduct(p0direction)/dotProduct);
-		
-		if(directionRayScale > 0 ) {
-			// find the intersection by dot product between the direction to plane from the po ray and 
-			// directionRayScale (which calculates the distance between the point and the surface in the given direction)
+		double directionRayScale = Util.alignZero(this.normal.dotProduct(p0direction) / dotProduct);
+
+		if (directionRayScale > 0) {
+			// find the intersection by dot product between the direction to plane from the
+			// po ray and
+			// directionRayScale (which calculates the distance between the point and the
+			// surface in the given direction)
 			return List.of(rayP0.add(rayDirection.scale(directionRayScale)));
 		}
-		
+
 		return null;
 	}
 }

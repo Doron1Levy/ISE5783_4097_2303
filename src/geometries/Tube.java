@@ -72,7 +72,6 @@ public class Tube extends RadialGeometry {
 	// Method to calculate intersection points between the cylinder and a given ray
 	@Override
 	public List<Point> findIntersections(Ray ray) {
-		List<Point> intersectionPoints = new ArrayList<Point>();
 
 		// Extract the origin and direction of the ray
 		Point rayOrigin = ray.getP0();
@@ -85,7 +84,7 @@ public class Tube extends RadialGeometry {
 
 		// If the discriminant is negative, the ray does not intersect the cylinder
 		if (discriminant < 0) {
-			return intersectionPoints;
+			return null;
 		}
 
 		// Calculate the roots of the quadratic equation
@@ -97,9 +96,6 @@ public class Tube extends RadialGeometry {
 		Point intersectionPoint2 = ray.getP0().add(ray.getDirection().scale(t2));
 
 		// Add the intersection points to the list
-		intersectionPoints.add(intersectionPoint1);
-		intersectionPoints.add(intersectionPoint2);
-
-		return intersectionPoints;
+		return List.of(intersectionPoint1,intersectionPoint2);
 	}
 }

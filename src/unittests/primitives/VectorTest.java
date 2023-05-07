@@ -99,5 +99,6 @@ class VectorTest {
 		// TC:01: A test of the vector normalize in a 3D
 		assertEquals(new Vector(-1 / Math.sqrt(14), -2 / Math.sqrt(14), -3 / Math.sqrt(14)), vec5.normalize(),
 				"ERROR TC:01");
+		
 	}
 }
