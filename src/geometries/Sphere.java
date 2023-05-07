@@ -55,6 +55,7 @@ public class Sphere extends RadialGeometry {
 
 	@Override
 	public List<Point> findIntersections(Ray ray) {
+		
 		Point p0 = ray.getP0();
 		Vector v = ray.getDirection();
 		Vector u;
