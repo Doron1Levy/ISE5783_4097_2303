@@ -29,7 +29,7 @@ public class Point {
 	}
 
 	/**
-	 * geter for x coordinate
+	 * Getter for x coordinate
 	 * 
 	 * @return coordinate x
 	 */

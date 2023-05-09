@@ -37,6 +37,15 @@ public class Ray {
 		return direction;
 	}
 
+	 /**
+     * get point on the ray
+     * @param length distance from the start of the ray
+     * @return new Point3D
+     */
+	public Point getPoint(double length) {
+	       return Util.isZero(length)? p0 : p0.add(direction.scale(length));
+	}
+
 	@Override
 	public String toString() {
 		return p0.toString() + direction.toString(); // is that correct?
