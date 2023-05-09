@@ -38,17 +38,17 @@ public class Geometries implements Intersectable {
 	}
 
 	public List<Point> findIntersections(Ray ray) {
-		
-		List<Point> intersactionList = new ArrayList <Point>();
-		
-		for (Intersectable geometry: this.geometList) {
-			List<Point>tempIntersactions = geometry.findIntersections(ray);
-			
-			if(geometry.findIntersections(ray)!= null) {
+
+		List<Point> intersactionList = new ArrayList<Point>();
+
+		for (Intersectable geometry : this.geometList) {
+			List<Point> tempIntersactions = geometry.findIntersections(ray);
+
+			if (geometry.findIntersections(ray) != null) {
 
 				intersactionList.addAll(tempIntersactions);
 			}
 		}
-		return intersactionList.isEmpty()? null : intersactionList;
+		return intersactionList.isEmpty() ? null : intersactionList;
 	}
 }

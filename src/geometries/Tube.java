@@ -96,6 +96,6 @@ public class Tube extends RadialGeometry {
 		Point intersectionPoint2 = ray.getP0().add(ray.getDirection().scale(t2));
 
 		// Add the intersection points to the list
-		return List.of(intersectionPoint1,intersectionPoint2);
+		return List.of(intersectionPoint1, intersectionPoint2);
 	}
 }

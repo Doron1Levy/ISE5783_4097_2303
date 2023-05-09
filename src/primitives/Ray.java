@@ -37,13 +37,14 @@ public class Ray {
 		return direction;
 	}
 
-	 /**
-     * get point on the ray
-     * @param length distance from the start of the ray
-     * @return new Point3D
-     */
+	/**
+	 * get point on the ray
+	 * 
+	 * @param length distance from the start of the ray
+	 * @return new Point3D
+	 */
 	public Point getPoint(double length) {
-	       return Util.isZero(length)? p0 : p0.add(direction.scale(length));
+		return Util.isZero(length) ? p0 : p0.add(direction.scale(length));
 	}
 
 	@Override
