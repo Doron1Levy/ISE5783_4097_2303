@@ -1,5 +1,9 @@
 package renderer;
 
+import java.awt.print.Printable;
+import java.util.MissingResourceException;
+
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Util;
@@ -22,12 +26,18 @@ public class Camera {
 	private Vector to;
 
 	// view plane size
-	double vpHigh;
-	double vpWidth;
-	double vpHeight;
+	private double vpHigh;
+	private double vpWidth;
+	private double vpHeight;
 
 	// distance of the view plan from the camera
 	private double distance;
+
+	// TODO
+	private ImageWriter imageWriter;
+
+	// TODO
+	private RayTracerBase rayTracer;
 
 	/**
 	 * A simple constructor that checks whether the vectors to and up are
@@ -53,14 +63,14 @@ public class Camera {
 
 	}
 
-	/******************** setters *********************/
+	// ****************** setters (builder pattern)***************//
 
 	/**
-	 * set width and height of the view plane return this camera
+	 * set width and height of the view plane return this camera (builder pattern)
 	 *
-	 * @param vpWidth
-	 * @param vpHeight
-	 * @return this
+	 * @param vpWidth  view plane width
+	 * @param vpHeight view plane high
+	 * @return this camera
 	 */
 	public Camera setVPSize(double vpWidth, double vpHeight) {
 
@@ -73,10 +83,10 @@ public class Camera {
 	}
 
 	/**
-	 * set distance the camera from view plane
+	 * set distance the camera from view plane (builder pattern)
 	 * 
 	 * @param distance view plane destination from camera
-	 * @return this
+	 * @return this camera
 	 */
 	public Camera setVPDistance(double distance) {
 		if (distance <= 0)
@@ -85,7 +95,29 @@ public class Camera {
 		return this;
 	}
 
-	/******************** getters ***************/
+	/**
+	 * rayTracerBase setter (builder pattern)
+	 * 
+	 * @param rayTracerBase
+	 * @return this camera
+	 */
+	public Camera setRayTracer(RayTracerBase rayTracerBase) {
+		this.rayTracer = rayTracerBase;
+		return this;
+	}
+
+	/**
+	 * imageWriter setter (builder pattern)
+	 * 
+	 * @param imageWriter
+	 * @return this camera
+	 */
+	public Camera setImageWriter(ImageWriter imageWriter) {
+		this.imageWriter = imageWriter;
+		return this;
+	}
+
+	// ******************** getters ***************//
 
 	/**
 	 * @return the location
@@ -170,6 +202,80 @@ public class Camera {
 
 		return new Ray(location, pixelPoint.subtract(location));
 
+	}
+
+	/**
+	 * the function checks that a non-empty value has been entered in all the
+	 * fields, and in case of lack, an exception will be thrown. loop over all
+	 * pixels on view plane, construct ray, find intersections, calculate the color,
+	 * and write to image
+	 */
+	public void renderImage() {
+		// check all camera properties Initialized
+		if (this.vpHeight == 0.0)
+			throw new MissingResourceException("camera class", "vpHeight", "0.0");
+
+		if (this.vpWidth == 0.0)
+			throw new MissingResourceException("camera class", "vpWidth", "0.0");
+
+		if (this.distance == 0.0)
+			throw new MissingResourceException("camera class", "distance", "0.0");
+
+		if (this.imageWriter == null)
+			throw new MissingResourceException("camera class", "imageWriter", "null");
+
+		if (this.rayTracer == null)
+			throw new MissingResourceException("camera class", "rayTracerBase", "null");
+
+		// loop on all pixels
+		for (int i = 0; i < this.imageWriter.getNy(); ++i) {
+
+			for (int j = 0; j < this.imageWriter.getNx(); ++j) {
+
+				// construct ray and send to ray tracer to get color
+				var color = rayTracer.traceRay(constructRay(imageWriter.getNx(), imageWriter.getNy(), j, i));
+
+				// write the color in point J,I
+				this.imageWriter.writePixel(j, i, color);
+			}
+		}
+	}
+
+	/**
+	 * the function will first check that a non-empty value has been entered in the
+	 * field of the image producer and will create a grid of lines and print them
+	 * for testing
+	 * 
+	 * @param interval interval between the grid lines
+	 * @param color    color of grid lines
+	 */
+	public void printGrid(int interval, Color color) {
+		if (imageWriter == null)
+			throw new MissingResourceException("camera class", "imageWriter", "null");
+
+		// print grid on image
+
+		// write lines
+		for (int j = 0; j < this.imageWriter.getNx(); j += interval) {
+			for (int i = 0; i < this.imageWriter.getNy(); ++i)
+				imageWriter.writePixel(j, i, color);
+		}
+
+		// writes columns
+		for (int i = 0; i < this.imageWriter.getNy(); i += interval)
+			for (int j = 0; j < this.imageWriter.getNx(); ++j)
+				imageWriter.writePixel(j, i, color);
+	}
+
+	/**
+	 * the function will first check that a non-empty value has been entered in the
+	 * field of the image producer and will create image
+	 */
+	public void writeToImage() {
+		if (imageWriter == null)
+			throw new MissingResourceException("camera class", "imageWriter", "null");
+
+		imageWriter.writeToImage();
 	}
 
 }

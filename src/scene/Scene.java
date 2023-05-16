@@ -32,36 +32,36 @@ public class Scene {
 	/******************** setters (builder pattern) *******************/
 
 	/**
-	 * background setter
+	 * background setter (builder pattern)
 	 * 
 	 * @param background
 	 * @return this background object that we set now
 	 */
-	public Color setBackground(Color background) {
+	public Scene setBackground(Color background) {
 		this.background = background;
-		return this.background;
+		return this;
 	}
 
 	/**
-	 * ambientLight setter
+	 * ambientLight setter (builder pattern)
 	 * 
 	 * @param ambientLight
 	 * @return this ambientLight object that we set now
 	 */
-	public AmbientLight setAmbientLight(AmbientLight ambientLight) {
+	public Scene setAmbientLight(AmbientLight ambientLight) {
 		this.ambientLight = ambientLight;
-		return this.ambientLight;
+		return this;
 	}
 
 	/**
-	 * geometries setter
+	 * geometries setter (builder pattern)
 	 * 
 	 * @param geometries
 	 * @return this geometries object that we set now
 	 */
-	public Geometries setGeometries(Geometries geometries) {
+	public Scene setGeometries(Geometries geometries) {
 		this.geometries = geometries;
-		return this.geometries;
+		return this;
 	}
 
 }

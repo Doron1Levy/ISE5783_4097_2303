@@ -6,6 +6,7 @@ import scene.Scene;
 
 /**
  * TODO
+ * 
  * @author David
  *
  */
@@ -15,6 +16,7 @@ public abstract class RayTracerBase {
 
 	/**
 	 * simple constructor set scene
+	 * 
 	 * @param scene
 	 */
 	public RayTracerBase(Scene scene) {
@@ -22,9 +24,10 @@ public abstract class RayTracerBase {
 	}
 
 	/**
-	 * TODO 
+	 * TODO
+	 * 
 	 * @param ray
 	 * @return
 	 */
-	public abstract Color tracRay(Ray ray);
+	public abstract Color traceRay(Ray ray);
 }

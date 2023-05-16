@@ -3,7 +3,6 @@
  */
 package geometries;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import primitives.Point;
@@ -33,6 +32,8 @@ public class Geometries implements Intersectable {
 	 * @param geometries
 	 */
 	public Geometries(Intersectable... geometries) {
+		if (geometList == null)
+			geometList = new LinkedList<Intersectable>();
 		add(geometries);
 	}
 

@@ -63,11 +63,12 @@ public class Ray {
 	}
 
 	/**
-     * this function get list of points and return the closest point
-     * to p0 of the ray
-     * @param list of point
-     * @return closest point to p0
-     */
+	 * this function get list of points and return the closest point to p0 of the
+	 * ray
+	 * 
+	 * @param list of point
+	 * @return closest point to p0      
+	 */
 	public Point findClosestPoint(List<Point> points) {
 		if (points.isEmpty() || points == null)
 			return null;
