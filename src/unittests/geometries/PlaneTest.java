@@ -7,6 +7,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * test class to check all function of Plane class
+ * @author David
+ *
+ */
 class PlaneTest {
 	/**
 	 * test for constructor

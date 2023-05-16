@@ -37,7 +37,7 @@ public class Plane implements Geometry {
 	 * simple constructor
 	 * 
 	 * @param newPoint
-	 * @param newVerticalVvector
+	 * @param new Vertical vector
 	 */
 	public Plane(Point point, Vector normal) {
 		this.p0 = point;
@@ -45,9 +45,9 @@ public class Plane implements Geometry {
 	}
 
 	/**
-	 * getter
+	 * getter return the center of plane
 	 * 
-	 * @return point
+	 * @return return the point that declared the plane
 	 */
 	public Point getPoint() {
 		return p0;
@@ -56,7 +56,7 @@ public class Plane implements Geometry {
 	/**
 	 * return normal vector
 	 * 
-	 * @return
+	 * @return the normal of plane
 	 */
 	public Vector getNormal() {
 		return normal;
@@ -65,8 +65,8 @@ public class Plane implements Geometry {
 	/**
 	 * getter
 	 * 
-	 * @param point
-	 * @return normal
+	 * @param The point where we are looking for normal
+	 * @return normal at point
 	 */
 	@Override
 	public Vector getNormal(Point point) {

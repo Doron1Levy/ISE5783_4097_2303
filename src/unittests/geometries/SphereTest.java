@@ -9,6 +9,11 @@ import geometries.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * test class to check all function of Sphere class
+ * @author David
+ *
+ */
 class SphereTest {
 	Sphere sphere1 = new Sphere(10, new Point(1, 2, 3));// positive coordinate
 	Point p1 = new Point(-1, -2, -4);// negative coordinate

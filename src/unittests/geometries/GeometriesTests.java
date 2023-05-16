@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /**
+ * test class to check all function of Geometries class
  * @author David
  *
  */

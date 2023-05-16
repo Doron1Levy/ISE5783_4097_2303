@@ -36,21 +36,21 @@ public class Camera {
 	 * 
 	 * @param location location of camera
 	 * @param up       height direction of the camera
-	 * @param right    right direction of the camera
 	 * @param to       direction of camera
 	 */
-	public Camera(Point location, Vector up, Vector to) {
+	public Camera(Point location, Vector to, Vector up) {
 
 		// check if the up vector and to vector are orthogonal each other
 		if (!Util.isZero(up.dotProduct(to)))
 			throw new IllegalArgumentException("the vector are not orthogonal to each other");
 
-		// calculate the right vector
-		this.right = to.crossProduct(up).normalize();
-
 		this.location = location;
 		this.up = up.normalize();
 		this.to = to.normalize();
+
+		// calculate the right vector
+		this.right = to.crossProduct(up).normalize();
+
 	}
 
 	/******************** setters *********************/
@@ -149,8 +149,27 @@ public class Camera {
 	 * @return ray through the pixel
 	 */
 	public Ray constructRay(int nX, int nY, int j, int i) {
-		// TODO not yet implemented
-		return null;
+
+		// calculate the meeting point of the object in the vector in front of the
+		// camera
+		Point pixelPoint = location.add(to.scale(distance));
+
+		// calculate the high of pixel
+		double y = vpHeight / nY;
+		// calculate the width of pixel
+		double x = vpWidth / nX;
+
+		// calculate the distance from to the pixel
+		double XJ = x * (j - ((nX - 1) / 2.0));
+		double YI = -y * (i - ((nX - 1) / 2.0));
+		// calculate the current pixel location
+		if (!Util.isZero(XJ))
+			pixelPoint = pixelPoint.add(right.scale(XJ));
+		if (!Util.isZero(YI))
+			pixelPoint = pixelPoint.add(up.scale(YI));
+
+		return new Ray(location, pixelPoint.subtract(location));
+
 	}
 
 }

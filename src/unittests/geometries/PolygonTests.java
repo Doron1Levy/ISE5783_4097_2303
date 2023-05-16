@@ -14,7 +14,7 @@ import primitives.Point;
 import primitives.Vector;
 
 /**
- * Testing Polygons
+ * test class to check all function of Polygon class
  * 
  * @author Dan
  */

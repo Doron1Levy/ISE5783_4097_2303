@@ -34,7 +34,7 @@ public class Cylinder extends Tube {
 	/**
 	 * calculate the cylinder normal
 	 * 
-	 * @param point
+	 * @param The point where we are looking for normal
 	 * @return The normal of the cylinder at the point sent
 	 */
 	@Override

@@ -13,11 +13,11 @@ import primitives.*;
  */
 class VectorTest {
 
-	Vector vec1 = new Vector(1, 2, 3);
-	Vector vec2 = new Vector(2, 4, 6);
-	Vector vec3 = new Vector(1, 2, 4);
-	Vector vec4 = new Vector(1, 4, -3);
-	Vector vec5 = new Vector(-1, -2, -3);
+	private Vector vec1 = new Vector(1, 2, 3);
+	private Vector vec2 = new Vector(2, 4, 6);
+	private Vector vec3 = new Vector(1, 2, 4);
+	private Vector vec4 = new Vector(1, 4, -3);
+	private Vector vec5 = new Vector(-1, -2, -3);
 
 	/**
 	 * The function checks the integrity of the constructor if a test fails it will
@@ -55,11 +55,11 @@ class VectorTest {
 	@Test
 	void crossProduct() {
 		// TC:01: sharp angle
-		assertEquals(new Vector(-2, 1, 0), vec1.crossProduct(vec3), "ERROR: TC:01");
+		assertEquals(new Vector(2, -1, 0), vec1.crossProduct(vec3), "ERROR: TC:01");
 		// TC:02 Orthogonal angle
-		assertEquals(new Vector(18, -6, -2), vec1.crossProduct(vec4), "ERROR: TC:02");
+		assertEquals(new Vector(-18, 6, 2), vec1.crossProduct(vec4), "ERROR: TC:02");
 		// TC:03 Obtuse angle
-		assertEquals(new Vector(22, -7, -2), vec3.crossProduct(vec4), "ERROR: TC:03");
+		assertEquals(new Vector(-22, 7, 2), vec3.crossProduct(vec4), "ERROR: TC:03");
 		// TC:04 Inverted vector
 		assertThrows(IllegalArgumentException.class, () -> vec1.crossProduct(vec5), "ERROR: TC:04");
 		// TC:05 Two vectors with the same direction
