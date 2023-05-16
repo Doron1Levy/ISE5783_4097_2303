@@ -1,5 +1,7 @@
 package primitives;
 
+import java.util.List;
+
 /**
  * Ray class represents 3D ray
  */
@@ -54,8 +56,23 @@ public class Ray {
 
 	@Override
 	public boolean equals(Object obj) {
+
 		if (this == obj)
 			return true;
 		return (obj instanceof Ray ray) && p0.equals(ray.p0) && direction.equals(ray.direction);
 	}
+
+	/**
+     * this function get list of points and return the closest point
+     * to p0 of the ray
+     * @param list of point
+     * @return closest point to p0
+     */
+	public Point findClosestPoint(List<Point> points) {
+		if (points.isEmpty() || points == null)
+			return null;
+
+		return points.stream().min((p1, p2) -> Double.compare(p0.distanceSquared(p1), p0.distanceSquared(p2))).get();
+	}
+
 }

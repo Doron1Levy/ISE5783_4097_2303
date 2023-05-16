@@ -114,18 +114,19 @@ class itegrationTest {
 	}
 
 	/**
-     *cases of camera intersection with triangle
-     */
-    @Test
-    void triangleCameraIntersactionTest() {
-    	
-    	//triangle standing in front of view plane (1 point)
-        camera = new Camera(new Point(0, 0, 0), new Vector(0, 0, -1), new Vector(0, 1, 0)).setVPSize(3d, 3d).setVPDistance(1);
-        shape = new Triangle(new Point(0,1,-2),new Point(1,-1,-2),new Point(-1,-1,-2));
-        assertEquals(1, findIntersactions(), "ERROR TC01");
+	 * cases of camera intersection with triangle
+	 */
+	@Test
+	void triangleCameraIntersactionTest() {
 
-        //triangle standing in front of view plane (2 points)
-        shape = new Triangle(new Point(0,20,-2),new Point(1,-1,-2),new Point(-1,-1,-2));
-        assertEquals(2, findIntersactions(), "ERROR TC2");
-    }
+		// triangle standing in front of view plane (1 point)
+		camera = new Camera(new Point(0, 0, 0), new Vector(0, 0, -1), new Vector(0, 1, 0)).setVPSize(3d, 3d)
+				.setVPDistance(1);
+		shape = new Triangle(new Point(0, 1, -2), new Point(1, -1, -2), new Point(-1, -1, -2));
+		assertEquals(1, findIntersactions(), "ERROR TC01");
+
+		// triangle standing in front of view plane (2 points)
+		shape = new Triangle(new Point(0, 20, -2), new Point(1, -1, -2), new Point(-1, -1, -2));
+		assertEquals(2, findIntersactions(), "ERROR TC2");
+	}
 }

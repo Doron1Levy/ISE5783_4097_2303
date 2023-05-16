@@ -27,7 +27,8 @@ public class Geometries implements Intersectable {
 	}
 
 	/**
-	 * a constructor that receives a list of geometric objects and adds them to the list
+	 * a constructor that receives a list of geometric objects and adds them to the
+	 * list
 	 * 
 	 * @param geometries
 	 */

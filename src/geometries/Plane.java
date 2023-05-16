@@ -37,7 +37,7 @@ public class Plane implements Geometry {
 	 * simple constructor
 	 * 
 	 * @param newPoint
-	 * @param new Vertical vector
+	 * @param new      Vertical vector
 	 */
 	public Plane(Point point, Vector normal) {
 		this.p0 = point;
