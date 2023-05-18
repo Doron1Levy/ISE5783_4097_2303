@@ -12,7 +12,7 @@ import primitives.Util;
  */
 public class Sphere extends RadialGeometry {
 
-	private final Point center;
+	protected final Point center;
 
 	/**
 	 * constructor (using super constructor)

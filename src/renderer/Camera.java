@@ -1,6 +1,5 @@
 package renderer;
 
-import java.awt.print.Printable;
 import java.util.MissingResourceException;
 
 import primitives.Color;
@@ -22,21 +21,20 @@ public class Camera {
 
 	// camera direction
 	private Vector up;
-	private Vector right;
 	private Vector to;
-
-	// view plane size
-	private double vpHigh;
-	private double vpWidth;
-	private double vpHeight;
+	private Vector right;
 
 	// distance of the view plan from the camera
 	private double distance;
 
-	// TODO
+	// view plane size
+	private double vpWidth;
+	private double vpHeight;
+
+	// the creator of the image
 	private ImageWriter imageWriter;
 
-	// TODO
+	// Finding the cuts from the camera towards each pixel in the view plane
 	private RayTracerBase rayTracer;
 
 	/**
@@ -150,8 +148,8 @@ public class Camera {
 	/**
 	 * @return the high
 	 */
-	public double getVpHigh() {
-		return vpHigh;
+	public double getVpHeight() {
+		return vpHeight;
 	}
 
 	/**
@@ -164,8 +162,8 @@ public class Camera {
 	/**
 	 * @return the distance
 	 */
-	public double getVpHeight() {
-		return vpHeight;
+	public double getDistance() {
+		return distance;
 	}
 
 	// ***************** Operations ******************** //

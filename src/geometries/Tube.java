@@ -1,6 +1,5 @@
 package geometries;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import primitives.Point;
@@ -13,7 +12,7 @@ import static primitives.Util.*;
  */
 public class Tube extends RadialGeometry {
 
-	private final Ray axisRay;
+	protected final Ray axisRay;
 
 	/**
 	 * constructor (using super constructor)

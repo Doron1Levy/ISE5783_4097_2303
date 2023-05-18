@@ -13,8 +13,8 @@ import primitives.Util;
  */
 public class Plane implements Geometry {
 
-	private final Point p0;
-	private final Vector normal;
+	protected final Point p0;
+	protected final Vector normal;
 
 	/**
 	 * Constructs plane by three point on the plane
