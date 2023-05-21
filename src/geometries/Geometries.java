@@ -11,18 +11,17 @@ import primitives.Ray;
 /**
  * The department implements operations for several geometric bodies
  * 
- * @author David
+ * @author Doron and Aharon
  *
  */
 public class Geometries implements Intersectable {
 
-	private List<Intersectable> geometList;
+	private List<Intersectable> geometList = new LinkedList<Intersectable>();
 
 	/**
-	 * a constructor that Initializes the list to 0
+	 * The default constructor (the list will be empty)
 	 */
 	public Geometries() {
-		geometList = new LinkedList<Intersectable>();
 	}
 
 	/**
@@ -32,9 +31,8 @@ public class Geometries implements Intersectable {
 	 * @param geometries
 	 */
 	public Geometries(Intersectable... geometries) {
-		if (geometList == null)
-			geometList = new LinkedList<Intersectable>();
-		add(geometries);
+		if (geometries != null)
+			add(geometries);
 	}
 
 	/**
@@ -43,9 +41,7 @@ public class Geometries implements Intersectable {
 	 * @param geometries objects to add
 	 */
 	public void add(Intersectable... geometries) {
-		for (Intersectable geo : geometries) {
-			this.geometList.add(geo);
-		}
+		this.geometList.addAll(List.of(geometries));
 	}
 
 	@Override
@@ -53,7 +49,7 @@ public class Geometries implements Intersectable {
 		List<Point> intersectionList = null;
 
 		for (Intersectable geometry : this.geometList) {
-			List<Point> tempIntersections = geometry.findIntersections(ray);
+			var tempIntersections = geometry.findIntersections(ray);
 			if (geometry.findIntersections(ray) != null) {
 				if (intersectionList == null)
 					intersectionList = new LinkedList<>();

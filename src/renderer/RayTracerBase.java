@@ -12,7 +12,7 @@ import scene.Scene;
  */
 public abstract class RayTracerBase {
 
-	protected Scene scene;
+	protected final  Scene scene;
 
 	/**
 	 * simple constructor set scene

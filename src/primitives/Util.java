@@ -72,12 +72,12 @@ public abstract class Util {
 	/**
 	 * calculate the discriminant parameters for cylinder
 	 * 
-	 * @param rayDirection
+	 * @param rayDirection the direction 
 	 * @param rayOrigin
 	 * @param axisRay
-	 * @param radius
+	 * @param radius 
 	 * @return 3 parameters for discriminant
-	 */
+	 * */
 	public static double[] discriminantParam(Vector rayDirection, Point rayOrigin, Ray axisRay, double radius) {
 		// Calculate the coefficients of the quadratic equation that describes the
 		// intersection points

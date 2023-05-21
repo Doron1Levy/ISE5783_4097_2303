@@ -12,19 +12,19 @@ import primitives.Color;
  */
 class ImageWriterTest {
 
+	/** create grid for test */
 	@Test
 	void testImageWriter() {
-
-		// crate grid for test
-		ImageWriter picture = new ImageWriter("grid", 800, 500);
-
-		for (int i = 0; i < 800; i++) {
-			for (int j = 0; j < 500; j++) {
-				if (i % 50 == 0 || j % 50 == 0)
-					picture.writePixel(i, j, new Color(255, 255, 255));
-
-			}
-		}
+		final Color color1 = new Color(java.awt.Color.WHITE);
+		final Color color2 = new Color(java.awt.Color.BLUE);
+		final int width = 800;
+		final int height = 500;
+		final int step = 50;
+		
+		final ImageWriter picture = new ImageWriter("grid", width, height);
+		for (int i = 0; i < width; i++)
+			for (int j = 0; j < height; j++)
+					picture.writePixel(i, j, i % step == 0 || j % step == 0 ? color1 : color2);
 		picture.writeToImage();
 	}
 

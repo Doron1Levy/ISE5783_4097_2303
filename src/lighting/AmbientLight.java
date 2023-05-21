@@ -5,7 +5,6 @@ package lighting;
 
 import primitives.Color;
 import primitives.Double3;
-import scene.Scene;
 
 /**
  * the class implements ambient lighting in the image
@@ -14,8 +13,8 @@ import scene.Scene;
  *
  */
 public class AmbientLight {
-
-	Color intensity;
+	private final Color intensity;
+	/**  */
 	public static final AmbientLight NONE = new AmbientLight(Color.BLACK, Double3.ZERO);
 
 	// ******************* constructors *****************
@@ -41,11 +40,11 @@ public class AmbientLight {
 	}
 
 	/**
-	 * setter for intensity
+	 * getter for intensity
 	 * 
 	 * @return this intensity
 	 */
-	public Color setInsensity() {
+	public Color getInsensity() {
 		return this.intensity;
 	}
 }

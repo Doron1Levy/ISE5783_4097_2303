@@ -7,6 +7,7 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Util;
 import primitives.Vector;
+import static primitives.Util.*;
 
 /**
  * implement the camera model
@@ -17,12 +18,12 @@ import primitives.Vector;
 public class Camera {
 
 	// camera location
-	private Point location;
+	private final Point location;
 
 	// camera direction
-	private Vector up;
-	private Vector to;
-	private Vector right;
+	private final Vector up;
+	private final Vector to;
+	private final Vector right;
 
 	// distance of the view plan from the camera
 	private double distance;
@@ -47,7 +48,6 @@ public class Camera {
 	 * @param to       direction of camera
 	 */
 	public Camera(Point location, Vector to, Vector up) {
-
 		// check if the up vector and to vector are orthogonal each other
 		if (!Util.isZero(up.dotProduct(to)))
 			throw new IllegalArgumentException("the vector are not orthogonal to each other");
@@ -58,7 +58,6 @@ public class Camera {
 
 		// calculate the right vector
 		this.right = to.crossProduct(up).normalize();
-
 	}
 
 	// ****************** setters (builder pattern)***************//
@@ -71,8 +70,7 @@ public class Camera {
 	 * @return this camera
 	 */
 	public Camera setVPSize(double vpWidth, double vpHeight) {
-
-		if (vpHeight <= 0 || vpWidth <= 0)
+		if (alignZero(vpHeight) <= 0 || alignZero(vpHeight) <= 0)
 			throw new IllegalArgumentException("ERROR negativ argument");
 
 		this.vpWidth = vpWidth;
@@ -87,7 +85,7 @@ public class Camera {
 	 * @return this camera
 	 */
 	public Camera setVPDistance(double distance) {
-		if (distance <= 0)
+		if (alignZero(distance) <= 0)
 			throw new IllegalArgumentException("ERROR negativ argument");
 		this.distance = distance;
 		return this;
@@ -96,7 +94,7 @@ public class Camera {
 	/**
 	 * rayTracerBase setter (builder pattern)
 	 * 
-	 * @param rayTracerBase
+	 * @param rayTracerBase Intersection of the camera beam with each pixel in the view plane
 	 * @return this camera
 	 */
 	public Camera setRayTracer(RayTracerBase rayTracerBase) {
@@ -107,7 +105,7 @@ public class Camera {
 	/**
 	 * imageWriter setter (builder pattern)
 	 * 
-	 * @param imageWriter
+	 * @param imageWriter The creator of the image 
 	 * @return this camera
 	 */
 	public Camera setImageWriter(ImageWriter imageWriter) {

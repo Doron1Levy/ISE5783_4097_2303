@@ -11,7 +11,7 @@ import static primitives.Util.*;
  * class Tube represents tube in 3D
  */
 public class Tube extends RadialGeometry {
-
+	/** the axis line of the tube */
 	protected final Ray axisRay;
 
 	/**

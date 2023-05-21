@@ -9,9 +9,9 @@ import primitives.*;
  * 
  */
 class PointTest {
-	Point p1 = new Point(1, 1, 1);
-	Point p2 = new Point(2, 2, 2);
-	Vector v1 = new Vector(-1, -1, -1);
+	private final Point p1 = new Point(1, 1, 1);
+	private final Point p2 = new Point(2, 2, 2);
+	private final Vector v1 = new Vector(-1, -1, -1);
 
 	/**
 	 * checking if the adding work correctly

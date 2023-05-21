@@ -4,8 +4,10 @@ package primitives;
  * This class represents a point in a three-dimensional universe
  */
 public class Point {
+	/** triad of coordinates value */
 	final Double3 xyz;
 
+	/** Center of coordinates */
 	static public final Point ZERO = new Point(Double3.ZERO);
 
 	/**
@@ -41,7 +43,7 @@ public class Point {
 	 * calculate the subtracting between two points
 	 * 
 	 * @param point other point
-	 * @return new vector
+	 * @return vector After subtracting the vector
 	 */
 	public Vector subtract(Point point) {
 		return new Vector(xyz.subtract(point.xyz));
@@ -50,8 +52,8 @@ public class Point {
 	/**
 	 * calculate the adding between point and vector
 	 * 
-	 * @param vec the vector to add
-	 * @return new point
+	 * @param vector the vector to add
+	 * @return point After adding the vector
 	 */
 	public Point add(Vector vector) {
 		return new Point(this.xyz.add(vector.xyz));
@@ -60,6 +62,7 @@ public class Point {
 	/**
 	 * calculate the square length between two points
 	 * 
+	 * @param point A point from which we are looking for the distance squared
 	 * @return square length between two points
 	 */
 	public double distanceSquared(Point point) {
@@ -72,6 +75,7 @@ public class Point {
 	/**
 	 * calculate the length between two points
 	 * 
+	 * @param point a point from which we are looking for the distance
 	 * @return length between two points
 	 */
 	public double distance(Point point) {

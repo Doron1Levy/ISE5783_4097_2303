@@ -1,6 +1,7 @@
 package geometries;
 
 import primitives.*;
+import static primitives.Util.*;
 
 /**
  * Cylinder class represents cylinder in 3D Cartesian coordinate system
@@ -31,26 +32,27 @@ public class Cylinder extends Tube {
 		return height;
 	}
 
-	/**
-	 * calculate the cylinder normal
-	 * 
-	 * @param The point where we are looking for normal
-	 * @return The normal of the cylinder at the point sent
-	 */
 	@Override
 	public Vector getNormal(Point point) {
-
-		Point p0 = getAxisRay().getP0();
-		Vector dir = getAxisRay().getDirection();
-		Point pTop = p0.add(dir.scale(getHeight()));
-
-		// if the point is at the top of the cylinder
-		if (point.equals(pTop) || Util.isZero(dir.dotProduct(point.subtract(pTop))))
-			return dir;
+		Point p0 = axisRay.getP0();
+		Vector dir = axisRay.getDirection();
+		double t;
 
 		// if the point is at the base of the cylinder
-		if (point.equals(p0) || Util.isZero(dir.dotProduct(point.subtract(p0))))
+		try {
+			t = dir.dotProduct(point.subtract(p0));
+			if (isZero(t))
+				return dir.scale(-1);
+		} catch (IllegalArgumentException ignore) {
+			// the point is in the center of the base
 			return dir.scale(-1);
+		}
+		
+		// if the point is at the top of the cylinder
+		if (isZero(t - height))
+			return dir;
+		if (Util.isZero(dir.dotProduct(point.subtract(p0))))
+			return dir;
 
 		return super.getNormal(point);
 	}

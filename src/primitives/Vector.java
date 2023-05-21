@@ -23,7 +23,7 @@ public class Vector extends Point {
 	 * constructor get Double3 object check if that points are not create the ZERO
 	 * vector (using super constructor)
 	 * 
-	 * @param xyz
+	 * @param xyz a point in space
 	 */
 	Vector(Double3 xyz) {
 		super(xyz);
@@ -32,6 +32,10 @@ public class Vector extends Point {
 		}
 	}
 
+	/**
+	 * getter for xyz point
+	 * @return this xyz
+	 */
 	public Double3 getVector() {
 		return this.xyz;
 	}
@@ -62,7 +66,7 @@ public class Vector extends Point {
 	/**
 	 * scale coordinate white coordinate
 	 * 
-	 * @param scalar
+	 * @param scalar scalar to scale whit vector
 	 * @return new vector
 	 */
 	public Vector scale(double scalar) {
@@ -72,7 +76,7 @@ public class Vector extends Point {
 	/**
 	 * Scalar product function
 	 * 
-	 * @param vector
+	 * @param vector A vector for a scalar product
 	 * @return Scalar product result
 	 */
 	public double dotProduct(Vector vector) {
@@ -82,7 +86,7 @@ public class Vector extends Point {
 	/**
 	 * cross product between to vector
 	 * 
-	 * @param vector
+	 * @param vector vector for vector multiplication
 	 * @return new normalize vertical vector
 	 */
 	public Vector crossProduct(Vector vector) {

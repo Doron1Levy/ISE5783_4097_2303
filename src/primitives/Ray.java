@@ -6,9 +6,8 @@ import java.util.List;
  * Ray class represents 3D ray
  */
 public class Ray {
-
-	final Point p0;
-	final Vector direction;
+	private final Point p0;
+	private final Vector direction;
 
 	/**
 	 * simple constructor
@@ -51,12 +50,11 @@ public class Ray {
 
 	@Override
 	public String toString() {
-		return p0.toString() + direction.toString(); // is that correct?
+		return p0 + "->"+ direction;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-
 		if (this == obj)
 			return true;
 		return (obj instanceof Ray ray) && p0.equals(ray.p0) && direction.equals(ray.direction);
@@ -73,7 +71,16 @@ public class Ray {
 		if (points.isEmpty() || points == null)
 			return null;
 
-		return points.stream().min((p1, p2) -> Double.compare(p0.distanceSquared(p1), p0.distanceSquared(p2))).get();
+		double minDistance = Double.POSITIVE_INFINITY;
+		Point closestPoint = null;
+		for (var p : points) {
+			double distance = p.distanceSquared(p0);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestPoint = p;
+			}
+		}
+		return closestPoint;
 	}
 
 }

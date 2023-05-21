@@ -10,10 +10,10 @@ import primitives.Ray;
 public interface Intersectable {
 
 	/**
-	 * get ray for intersect
+	 * Find intersections between the geometry object and a ray
 	 * 
-	 * @param ray
-	 * @return intersections list between the ray and geometry object
+	 * @param ray the ray to intersect
+	 * @return the intersections' list
 	 */
 	List<Point> findIntersections(Ray ray);
 

@@ -20,7 +20,6 @@ public class RayTracerBasic extends RayTracerBase {
 	 */
 	public RayTracerBasic(Scene scene) {
 		super(scene);
-		return;
 	}
 
 	@Override
@@ -29,11 +28,9 @@ public class RayTracerBasic extends RayTracerBase {
 		var IntersectionsLst = scene.geometries.findIntersections(ray);
 
 		// no intersection points
-		if (IntersectionsLst == null)
-			return scene.background;
-
-		// return the color of the point
-		return calcColor(ray.findClosestPoint(IntersectionsLst));
+		return IntersectionsLst == null ? scene.background
+				// return the color of the point
+				: calcColor(ray.findClosestPoint(IntersectionsLst));
 	}
 
 	/**
@@ -43,7 +40,7 @@ public class RayTracerBasic extends RayTracerBase {
 	 * @return the color of the point
 	 */
 	private Color calcColor(Point point) {
-		return scene.ambientLight.setInsensity();
+		return scene.ambientLight.getInsensity();
 	}
 
 }

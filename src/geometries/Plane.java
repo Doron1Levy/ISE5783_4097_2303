@@ -62,22 +62,11 @@ public class Plane implements Geometry {
 		return normal;
 	}
 
-	/**
-	 * getter
-	 * 
-	 * @param The point where we are looking for normal
-	 * @return normal at point
-	 */
 	@Override
 	public Vector getNormal(Point point) {
 		return normal;
 	}
 
-	/**
-	 * print the Plan objects
-	 * 
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		return "Plane{" + "point=" + p0 + ", normal=" + normal + '}';
@@ -93,36 +82,16 @@ public class Plane implements Geometry {
 		if (rayP0 == this.p0)
 			return null;
 
-		/**
-		 * calculate the dotProduct between the ray direction and normal plane
-		 */
+		// the cosine of the angle between the ray and the normal to the plane
 		double dotProduct = this.normal.dotProduct(rayDirection);
-
-		// Checking whether the plane and the ray intersect each other or are parallel
-		// to each other
-		if (Util.isZero(dotProduct)) {
+		// if the ray is parallel to the plane - there are no intersections
+		if (Util.isZero(dotProduct)) // cosine = 0 for a right angle (90 degrees)
 			return null;
-		}
 
 		// direction to plane p0 from ray p0
 		Vector p0direction = p0.subtract(rayP0);
-
-		/**
-		 * checking if direction of ray is to plane if directionRayScale < 0 the ray
-		 * direction of the beam is not to the surface of plane if directionRayScale = 0
-		 * the ray is on surface of plane if directionRayScale > 0 the ray direction of
-		 * the beam is cut the surface of plane
-		 */
-		double directionRayScale = Util.alignZero(this.normal.dotProduct(p0direction) / dotProduct);
-
-		if (directionRayScale > 0) {
-			// find the intersection by dot product between the direction to plane from the
-			// po ray and
-			// directionRayScale (which calculates the distance between the point and the
-			// surface in the given direction)
-			return List.of(rayP0.add(rayDirection.scale(directionRayScale)));
-		}
-
-		return null;
+		// distance from the ray head to the intersection point
+		double distance = Util.alignZero(this.normal.dotProduct(p0direction) / dotProduct);
+		return distance <= 0 ? null : List.of(ray.getPoint(distance));
 	}
 }
