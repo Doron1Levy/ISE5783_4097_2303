@@ -5,3 +5,6 @@ aharon
 hebrew
 kamur
 david
+emission
+discriminant
+int

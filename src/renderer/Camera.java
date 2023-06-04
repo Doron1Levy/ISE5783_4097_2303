@@ -94,7 +94,8 @@ public class Camera {
 	/**
 	 * rayTracerBase setter (builder pattern)
 	 * 
-	 * @param rayTracerBase Intersection of the camera beam with each pixel in the view plane
+	 * @param rayTracerBase Intersection of the camera beam with each pixel in the
+	 *                      view plane
 	 * @return this camera
 	 */
 	public Camera setRayTracer(RayTracerBase rayTracerBase) {
@@ -105,7 +106,7 @@ public class Camera {
 	/**
 	 * imageWriter setter (builder pattern)
 	 * 
-	 * @param imageWriter The creator of the image 
+	 * @param imageWriter The creator of the image
 	 * @return this camera
 	 */
 	public Camera setImageWriter(ImageWriter imageWriter) {

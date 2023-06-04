@@ -12,9 +12,24 @@ import primitives.Color;
  *
  */
 public class Scene {
+
+	/**
+	 * The scene name
+	 */
 	public String name;
+	/**
+	 * The background color of the scene.
+	 */
 	public Color background;
+
+	/**
+	 * The ambient light of the scene.
+	 */
 	public AmbientLight ambientLight;
+
+	/**
+	 * The collection of geometries in the scene.
+	 */
 	public Geometries geometries;
 
 	/**
@@ -34,8 +49,8 @@ public class Scene {
 	/**
 	 * background setter (builder pattern)
 	 * 
-	 * @param background
-	 * @return this background object that we set now
+	 * @param background The new background
+	 * @return this scene (builder pattern)
 	 */
 	public Scene setBackground(Color background) {
 		this.background = background;
@@ -45,8 +60,8 @@ public class Scene {
 	/**
 	 * ambientLight setter (builder pattern)
 	 * 
-	 * @param ambientLight
-	 * @return this ambientLight object that we set now
+	 * @param ambientLight  The scene ambition light for set
+	 * @return this scene (builder pattern)
 	 */
 	public Scene setAmbientLight(AmbientLight ambientLight) {
 		this.ambientLight = ambientLight;
@@ -56,8 +71,8 @@ public class Scene {
 	/**
 	 * geometries setter (builder pattern)
 	 * 
-	 * @param geometries
-	 * @return this geometries object that we set now
+	 * @param geometries The scene geometries for set
+	 * @return this scene (builder pattern)
 	 */
 	public Scene setGeometries(Geometries geometries) {
 		this.geometries = geometries;

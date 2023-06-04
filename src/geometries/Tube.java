@@ -9,46 +9,44 @@ import static primitives.Util.*;
 
 /**
  * class Tube represents tube in 3D
+ * A Tube is a type of RadialGeometry that has a radius and an axis ray.
  */
 public class Tube extends RadialGeometry {
 	/** the axis line of the tube */
 	protected final Ray axisRay;
 
 	/**
-	 * constructor (using super constructor)
 	 * 
-	 * @param radius
-	 * @param axisRay
+	 * Constructs a Tube object with the specified radius and axis ray.
+	 * 
+	 * @param radius  the radius of the tube
+	 * @param axisRay the axis ray of the tube
 	 */
 	public Tube(double radius, Ray axisRay) {
 		super(radius);
 		this.axisRay = axisRay;
 	}
 
+	/********************* getters ************************/
+
 	/**
-	 * getter
+	 * Returns the axis ray of the tube.
 	 * 
-	 * @return axisRay
+	 * @return axisRay the axis ray
 	 */
 	public Ray getAxisRay() {
 		return axisRay;
 	}
 
 	/**
-	 * getter
+	 * Returns the radius of the tube.
 	 * 
-	 * @return
+	 * @return radius the radius of tube
 	 */
 	public double getRadius() {
 		return radius;
 	}
 
-	/**
-	 * calculate The normal of the Tube at the point sent
-	 * 
-	 * @param point
-	 * @return
-	 */
 	@Override
 	public Vector getNormal(Point point) {
 		Point p0 = axisRay.getP0();
@@ -58,17 +56,11 @@ public class Tube extends RadialGeometry {
 		return point.subtract(o);
 	}
 
-	/**
-	 * print the tube objects
-	 * 
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		return "Tube{" + "axisRay=" + axisRay + ", radius=" + radius + '}';
 	}
 
-	// Method to calculate intersection points between the cylinder and a given ray
 	@Override
 	public List<Point> findIntersections(Ray ray) {
 

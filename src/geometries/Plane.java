@@ -11,9 +11,16 @@ import primitives.Util;
  * Plane class represents two-dimensional plane in 3D Cartesian coordinate
  * system
  */
-public class Plane implements Geometry {
+public class Plane extends Geometry {
 
+	/**
+	 * reference point on the plane
+	 */
 	protected final Point p0;
+
+	/**
+	 * normal vector of the plane
+	 */
 	protected final Vector normal;
 
 	/**
@@ -34,10 +41,11 @@ public class Plane implements Geometry {
 	}
 
 	/**
-	 * simple constructor
 	 * 
-	 * @param newPoint
-	 * @param new      Vertical vector
+	 * Constructs a plane using a reference point and a normal vector.
+	 * 
+	 * @param point  reference point on the plane
+	 * @param normal normal vector of the plane
 	 */
 	public Plane(Point point, Vector normal) {
 		this.p0 = point;
@@ -47,7 +55,7 @@ public class Plane implements Geometry {
 	/**
 	 * getter return the center of plane
 	 * 
-	 * @return return the point that declared the plane
+	 * @return point the point that declared the plane
 	 */
 	public Point getPoint() {
 		return p0;
@@ -56,7 +64,7 @@ public class Plane implements Geometry {
 	/**
 	 * return normal vector
 	 * 
-	 * @return the normal of plane
+	 * @return normal the normal of plane
 	 */
 	public Vector getNormal() {
 		return normal;
@@ -79,7 +87,7 @@ public class Plane implements Geometry {
 
 		// Ray starts begins in the same point which appears as reference point in the
 		// plane (0 points)
-		if (rayP0 == this.p0)
+		if (rayP0.equals(this.p0))
 			return null;
 
 		// the cosine of the angle between the ray and the normal to the plane

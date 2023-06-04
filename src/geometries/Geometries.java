@@ -14,7 +14,7 @@ import primitives.Ray;
  * @author Doron and Aharon
  *
  */
-public class Geometries implements Intersectable {
+public class Geometries extends Intersectable {
 
 	private List<Intersectable> geometList = new LinkedList<Intersectable>();
 
@@ -28,7 +28,7 @@ public class Geometries implements Intersectable {
 	 * a constructor that receives a list of geometric objects and adds them to the
 	 * list
 	 * 
-	 * @param geometries
+	 * @param geometries geometries Intersectable
 	 */
 	public Geometries(Intersectable... geometries) {
 		if (geometries != null)

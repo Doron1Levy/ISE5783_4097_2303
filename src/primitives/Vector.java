@@ -34,6 +34,7 @@ public class Vector extends Point {
 
 	/**
 	 * getter for xyz point
+	 * 
 	 * @return this xyz
 	 */
 	public Double3 getVector() {

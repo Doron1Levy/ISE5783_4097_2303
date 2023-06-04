@@ -3,7 +3,7 @@ package geometries;
 /**
  * An abstract class from which all bodies that hold a radius field inherit
  */
-public abstract class RadialGeometry implements Geometry {
+public abstract class RadialGeometry extends Geometry {
 
 	/** the radius of a rounded part of the geometry body */
 	protected final double radius;
@@ -13,7 +13,7 @@ public abstract class RadialGeometry implements Geometry {
 	/**
 	 * constructor (using super constructor)
 	 * 
-	 * @param radius
+	 * @param radius radius of geometry
 	 */
 	public RadialGeometry(double radius) {
 		this.radius = radius;
@@ -21,9 +21,9 @@ public abstract class RadialGeometry implements Geometry {
 	}
 
 	/**
-	 * getter
+	 * Returns the radius of the RadialGeometry.
 	 * 
-	 * @return rounded object radius
+	 * @return radius the radius of RadialGeometry.
 	 */
 	public double getRadius() {
 		return radius;

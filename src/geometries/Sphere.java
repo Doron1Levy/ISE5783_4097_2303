@@ -12,12 +12,15 @@ import primitives.Util;
  */
 public class Sphere extends RadialGeometry {
 
+	/**
+	 * The sphere center
+	 */
 	protected final Point center;
 
 	/**
 	 * constructor (using super constructor)
 	 * 
-	 * @param radius
+	 * @param radius radius of sphere
 	 * @param center the center of sphere
 	 */
 	public Sphere(double radius, Point center) {

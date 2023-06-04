@@ -12,12 +12,12 @@ public class Ray {
 	/**
 	 * simple constructor
 	 * 
-	 * @param start     point
-	 * @param direction vector
+	 * @param p0        start point
+	 * @param direction direction vector
 	 */
-	public Ray(Point point, Vector vector) {
-		this.p0 = point;
-		this.direction = vector.normalize();
+	public Ray(Point p0, Vector direction) {
+		this.p0 = p0;
+		this.direction = direction.normalize();
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Ray {
 
 	@Override
 	public String toString() {
-		return p0 + "->"+ direction;
+		return p0 + "->" + direction;
 	}
 
 	@Override
@@ -64,8 +64,8 @@ public class Ray {
 	 * this function get list of points and return the closest point to p0 of the
 	 * ray
 	 * 
-	 * @param list of point
-	 * @return closest point to p0      
+	 * @param points list of point for search
+	 * @return closestPoint closest point to p0      
 	 */
 	public Point findClosestPoint(List<Point> points) {
 		if (points.isEmpty() || points == null)

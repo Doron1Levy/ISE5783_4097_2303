@@ -16,7 +16,7 @@ public class RayTracerBasic extends RayTracerBase {
 	/**
 	 * Constructor use super class constructor
 	 * 
-	 * @param scene
+	 * @param scene scene to trace ray 
 	 */
 	public RayTracerBasic(Scene scene) {
 		super(scene);

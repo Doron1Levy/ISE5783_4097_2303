@@ -20,11 +20,11 @@ class ImageWriterTest {
 		final int width = 800;
 		final int height = 500;
 		final int step = 50;
-		
+
 		final ImageWriter picture = new ImageWriter("grid", width, height);
 		for (int i = 0; i < width; i++)
 			for (int j = 0; j < height; j++)
-					picture.writePixel(i, j, i % step == 0 || j % step == 0 ? color1 : color2);
+				picture.writePixel(i, j, i % step == 0 || j % step == 0 ? color1 : color2);
 		picture.writeToImage();
 	}
 

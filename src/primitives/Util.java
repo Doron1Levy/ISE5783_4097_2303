@@ -70,14 +70,16 @@ public abstract class Util {
 	}
 
 	/**
-	 * calculate the discriminant parameters for cylinder
+	 * Calculates the coefficients of the quadratic equation that describes the
+	 * intersection points between a ray and an axis-aligned cylinder.
 	 * 
-	 * @param rayDirection the direction 
-	 * @param rayOrigin
-	 * @param axisRay
-	 * @param radius 
-	 * @return 3 parameters for discriminant
-	 * */
+	 * @param rayDirection The direction vector of the ray.
+	 * @param rayOrigin    The origin point of the ray.
+	 * @param axisRay      The ray along the axis of the cylinder.
+	 * @param radius       The radius of the cylinder.
+	 * @return An array containing the coefficients of the quadratic equation
+	 *         [a,b,c].
+	 */
 	public static double[] discriminantParam(Vector rayDirection, Point rayOrigin, Ray axisRay, double radius) {
 		// Calculate the coefficients of the quadratic equation that describes the
 		// intersection points
