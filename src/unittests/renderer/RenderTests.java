@@ -10,6 +10,7 @@ import lighting.AmbientLight;
 import primitives.*;
 import renderer.*;
 import scene.Scene;
+import scene.XML;
 
 /**
  * Test rendering a basic image
@@ -69,7 +70,10 @@ public class RenderTests {
 				new Triangle(new Point(100, 0, -100), new Point(0, -100, -100), new Point(100, -100, -100))
 						.setEmission(new Color(BLUE)));
 
-		Camera camera = new Camera(Point.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0)) //
+		Camera camera = new Camera( //
+				Point.ZERO, //
+				new Vector(0, 0, -1)//
+				, new Vector(0, 1, 0)) //
 				.setVPDistance(100) //
 				.setVPSize(500, 500) //
 				.setImageWriter(new ImageWriter("color render test", 1000, 1000))
@@ -84,10 +88,12 @@ public class RenderTests {
 	@Test
 	public void basicRenderXml() {
 		Scene scene = new Scene("XML Test scene");
-		// enter XML file name and parse from XML file into scene object
-		// using the code you added in appropriate packages
-		// ...
-		// NB: unit tests is not the correct place to put XML parsing code
+		String FOLDER_PATH = System.getProperty("user.dir") + "/xml/basicRenderTestTwoColors.xml";
+		try {
+			XML.sceneParser(scene, FOLDER_PATH);
+		} catch (Exception e) {
+			System.out.print(FOLDER_PATH);
+		}
 
 		Camera camera = new Camera(Point.ZERO, new Vector(0, 0, -1), new Vector(0, 1, 0)) //
 				.setVPDistance(100) //

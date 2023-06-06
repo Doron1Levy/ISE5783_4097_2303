@@ -108,8 +108,8 @@ public class RayTracerBasic extends RayTracerBase {
 	 */
 	private Color calcSpecular(Double3 ks, Vector l, Vector n, double nl, Vector v, int nShininess,
 			Color lightIntensity) {
-		Vector R = l.add(n.scale(-2 * nl)); // nl must not be zero!
-		double minusVR = -alignZero(R.dotProduct(v));
+		Vector r = l.add(n.scale(-2 * nl)); // nl must not be zero!
+		double minusVR = -alignZero(r.dotProduct(v));
 		if (minusVR <= 0) {
 			return new primitives.Color(Color.BLACK.getColor()); // View from direction opposite to r vector
 		}

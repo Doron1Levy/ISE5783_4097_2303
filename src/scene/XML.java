@@ -47,19 +47,21 @@ public class XML {
 
 		// Get the ambient element from the root element and set the ambient light of
 		// the scene
-		Element ambient = (Element) root.getElementsByTagName("ambient").item(0);
+		Element ambient = (Element) root.getElementsByTagName("ambient-light").item(0);
 		scene.setAmbientLight(new AmbientLight(parseColor(ambient.getAttribute("color")), new Double3(1d, 1d, 1d)));
 
 		// Get the list of geometry elements from the root element
-		NodeList geometryNodes = root.getElementsByTagName("geometry");
+		NodeList geometryNodes = root.getElementsByTagName("geometries");
 
 		// Create a new Geometries object to store the parsed geometries
 		Geometries geometries = new Geometries();
 
+		
 		// Iterate over the geometry elements and parse each geometry based on its type
 		for (int i = 0; i < geometryNodes.getLength(); i++) {
 			Element geometryElement = (Element) geometryNodes.item(i);
-			String geometryType = geometryElement.getAttribute("type");
+			Node attribute = geometryNodes.item(i);
+			String geometryType = attribute.getNodeName();
 
 			switch (geometryType) {
 			case "triangle":

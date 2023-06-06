@@ -42,18 +42,29 @@ class PointTest {
 	@Test
 	void testDistanceSquared() {
 		// =======Equivalence Partitions Tests=======
-		// TC01: testing if the distance between two points is correct (simple test)
+		// TC01: testing if the distance squared between two points is correct (simple test)
 		assertEquals(3, p1.distanceSquared(p2), "ERROR: DistanceSquared doesn't work correctly");
+		
+		// =============== Boundary Values Tests ==================
+		
+		//TC11: testing if the distance squared between the point to it self is zero
+		assertEquals(0, p1.distanceSquared(p1), "ERROR: DistanceSquared doesn't work correctly");
 	}
 
 	/**
-	 * checking if the Distance func work coectly
+	 * checking if the Distance function work correctly
 	 */
 	@Test
 	void testDistance() {
 		// =======Equivalence Partitions Tests=======
-		// TC01: testing if the distance between two points -with sqrt- is correct
+		// TC01: testing if the distance between two points -with squared- is correct
 		// (simple test)
 		assertEquals(Math.sqrt(3), p1.distance(p2), "ERROR: Distance doesn't work correctly");
+		
+		// =============== Boundary Values Tests ==================
+		
+		//TC11: testing if the distance between the point to it self is zero
+		assertEquals(0, p1.distance(p1), "ERROR: Distance doesn't work correctly");
+
 	}
 }

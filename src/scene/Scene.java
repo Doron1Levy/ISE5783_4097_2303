@@ -37,7 +37,7 @@ public class Scene {
 	 */
 	public Geometries geometries;
 
-	/*
+	/**
 	 * list of all light source in the scene
 	 */
 	public List<LightSource> lightSources = new LinkedList<>();
@@ -98,6 +98,12 @@ public class Scene {
 	public Scene setLightSource(List<LightSource> lights) {
 		this.lightSources = lights;
 		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "Scene [name=" + name + ", background=" + background + ", ambientLight=" + ambientLight + ", geometries="
+				+ geometries + ", lightSources=" + lightSources + "]";
 	}
 
 }

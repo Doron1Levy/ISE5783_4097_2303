@@ -40,12 +40,14 @@ class VectorTest {
 		assertEquals(28, vec1.dotProduct(vec2), "ERROR: TC:01");
 		// TC:02 sharp angle
 		assertEquals(17, vec1.dotProduct(vec3), "ERROR:  TC:02");
-		// TC:03 Orthogonal angle
-		assertEquals(0, vec1.dotProduct(vec4), "ERROR:  TC:03");
-		// TC:04 Obtuse angle
-		assertEquals(-3, vec3.dotProduct(vec4), "ERROR: TC:04");
-		// TC:05 Inverted vector
-		assertEquals(-14, vec1.dotProduct(vec5), "ERROR: TC:05");
+		// TC:03 Obtuse angle
+		assertEquals(-3, vec3.dotProduct(vec4), "ERROR: TC:03");
+		// TC:04 Inverted vector
+		assertEquals(-14, vec1.dotProduct(vec5), "ERROR: TC:04");
+		
+		// =============== Boundary Values Tests ==================
+		// TC:11 Orthogonal angle
+		assertEquals(0, vec1.dotProduct(vec4), "ERROR:  TC:11");
 	}
 
 	/**

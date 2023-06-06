@@ -18,15 +18,14 @@ public class AmbientLight extends Light {
 	public static final AmbientLight NONE = new AmbientLight(Color.BLACK, Double3.ZERO);
 
 	// ******************* constructors *****************
-
 	/**
 	 * constructor calculate the intensity (Double3 object) use super constructor
 	 * 
 	 * @param light light intensity according to the RGB component
-	 * @param Ka    attenuation coefficient of the light on the surface
+	 * @param ka    attenuation coefficient of the light on the surface
 	 */
-	public AmbientLight(Color light, Double3 Ka) {
-		super(light.scale(Ka));
+	public AmbientLight(Color light, Double3 ka) {
+		super(light.scale(ka));
 	}
 
 	/**
@@ -34,9 +33,9 @@ public class AmbientLight extends Light {
 	 * constructor
 	 * 
 	 * @param light light intensity according to the RGB component
-	 * @param Ka    attenuation coefficient of the light on the surface
+	 * @param ka    attenuation coefficient of the light on the surface
 	 */
-	public AmbientLight(Color light, double Ka) {
-		super(light.scale(Ka));
+	public AmbientLight(Color light, double ka) {
+		super(light.scale(ka));
 	}
 }

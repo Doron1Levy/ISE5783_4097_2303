@@ -2,7 +2,6 @@ package geometries;
 
 import java.util.List;
 
-import geometries.Intersectable.GeoPoint;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
@@ -60,6 +59,7 @@ public class Triangle extends Polygon {
 		if (cosine1 * cosine3 <= 0)
 			return null;
 
+		intersection.get(0).geometry = this;
 		// the point is inside the triangle
 		return intersection;
 	}
