@@ -2,6 +2,8 @@ package primitives;
 
 import java.util.List;
 
+import geometries.Intersectable.GeoPoint;
+
 /**
  * Ray class represents 3D ray
  */
@@ -68,13 +70,26 @@ public class Ray {
 	 * @return closestPoint closest point to p0      
 	 */
 	public Point findClosestPoint(List<Point> points) {
-		if (points.isEmpty() || points == null)
+		return points == null || points.isEmpty() ? null
+				: findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
+	}
+
+	/**
+	 * this function get list of geoPoints and return the closest geoPoint to p0 of
+	 * the ray
+	 * 
+	 * @param geoPoints list of GeoPoints for search
+	 * @return closestPoint closest GeoPoint to p0      
+	 */
+	public GeoPoint findClosestGeoPoint(List<GeoPoint> geoPoints) {
+		if (geoPoints.isEmpty() || geoPoints == null)
 			return null;
 
 		double minDistance = Double.POSITIVE_INFINITY;
-		Point closestPoint = null;
-		for (var p : points) {
-			double distance = p.distanceSquared(p0);
+		GeoPoint closestPoint = null;
+
+		for (var p : geoPoints) {
+			double distance = p.point.distanceSquared(p0);
 			if (distance < minDistance) {
 				minDistance = distance;
 				closestPoint = p;
@@ -82,5 +97,4 @@ public class Ray {
 		}
 		return closestPoint;
 	}
-
 }

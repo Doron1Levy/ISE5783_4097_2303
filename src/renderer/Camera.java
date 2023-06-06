@@ -207,7 +207,7 @@ public class Camera {
 	 * pixels on view plane, construct ray, find intersections, calculate the color,
 	 * and write to image
 	 */
-	public void renderImage() {
+	public Camera renderImage() {
 		// check all camera properties Initialized
 		if (this.vpHeight == 0.0)
 			throw new MissingResourceException("camera class", "vpHeight", "0.0");
@@ -224,18 +224,22 @@ public class Camera {
 		if (this.rayTracer == null)
 			throw new MissingResourceException("camera class", "rayTracerBase", "null");
 
+		int nx = imageWriter.getNx();
+		int ny = imageWriter.getNy();
 		// loop on all pixels
 		for (int i = 0; i < this.imageWriter.getNy(); ++i) {
 
 			for (int j = 0; j < this.imageWriter.getNx(); ++j) {
 
 				// construct ray and send to ray tracer to get color
-				var color = rayTracer.traceRay(constructRay(imageWriter.getNx(), imageWriter.getNy(), j, i));
+				var color = rayTracer.traceRay(constructRay(nx, ny, j, i));
 
 				// write the color in point J,I
 				this.imageWriter.writePixel(j, i, color);
 			}
 		}
+
+		return this;
 	}
 
 	/**

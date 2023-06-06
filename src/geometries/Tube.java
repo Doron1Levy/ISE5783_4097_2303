@@ -8,8 +8,8 @@ import primitives.Vector;
 import static primitives.Util.*;
 
 /**
- * class Tube represents tube in 3D
- * A Tube is a type of RadialGeometry that has a radius and an axis ray.
+ * class Tube represents tube in 3D A Tube is a type of RadialGeometry that has
+ * a radius and an axis ray.
  */
 public class Tube extends RadialGeometry {
 	/** the axis line of the tube */
@@ -62,7 +62,7 @@ public class Tube extends RadialGeometry {
 	}
 
 	@Override
-	public List<Point> findIntersections(Ray ray) {
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 
 		// Extract the origin and direction of the ray
 		Point rayOrigin = ray.getP0();
@@ -87,6 +87,6 @@ public class Tube extends RadialGeometry {
 		Point intersectionPoint2 = ray.getP0().add(ray.getDirection().scale(t2));
 
 		// Add the intersection points to the list
-		return List.of(intersectionPoint1, intersectionPoint2);
+		return List.of(new GeoPoint(this, intersectionPoint1), new GeoPoint(this, intersectionPoint2));
 	}
 }

@@ -8,3 +8,6 @@ david
 emission
 discriminant
 int
+jpeg
+specular
+phong
