@@ -9,7 +9,7 @@ import geometries.Intersectable.GeoPoint;
  * Ray class represents 3D ray
  */
 public class Ray {
-	private static final double DELTA = 0.00001; // Small value used for offsetting the ray origin
+	private static final double DELTA = 0.00001; // Small value used for offset the ray origin
 	private final Point p0;
 	private final Vector direction;
 

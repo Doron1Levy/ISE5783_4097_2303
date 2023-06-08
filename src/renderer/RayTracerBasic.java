@@ -145,27 +145,6 @@ public class RayTracerBasic extends RayTracerBase {
 	}
 
 	/**
-	 * Calculate Reflected ray
-	 * 
-	 * @param pointGeo
-	 * @param inRay
-	 * @param n
-	 * @return
-	 */
-	private Ray constructReflectedRay(Point pointGeo, Ray inRay, Vector n) {
-		// 𝒓=𝒗 −𝟐∙(𝒗∙𝒏)∙𝒏
-		Vector v = inRay.getDirection();
-		double vn = v.dotProduct(n);
-
-		if (vn == 0) {
-			return null;
-		}
-
-		Vector r = v.subtract(n.scale(2 * vn));
-		return new Ray(pointGeo, r, n);
-	}
-
-	/**
 	 * Calculates the diffuse component of light reflection.
 	 *
 	 * @param kd             The diffuse reflection coefficient.
@@ -264,6 +243,27 @@ public class RayTracerBasic extends RayTracerBase {
 	 */
 	private Ray constructRefractedRay(Point pointGeo, Ray inRay, Vector n) {
 		return new Ray(pointGeo, inRay.getDirection(), n);
+	}
+
+	/**
+	 * Calculate Reflected ray
+	 * 
+	 * @param pointGeo
+	 * @param inRay
+	 * @param n
+	 * @return
+	 */
+	private Ray constructReflectedRay(Point pointGeo, Ray inRay, Vector n) {
+		// 𝒓=𝒗 −𝟐∙(𝒗∙𝒏)∙𝒏
+		Vector v = inRay.getDirection();
+		double vn = v.dotProduct(n);
+
+		if (vn == 0) {
+			return null;
+		}
+
+		Vector r = v.subtract(n.scale(2 * vn));
+		return new Ray(pointGeo, r, n);
 	}
 
 	/**
