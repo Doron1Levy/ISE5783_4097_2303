@@ -47,8 +47,8 @@ public class Sphere extends RadialGeometry {
 		return "Sphere{" + "center=" + center + ", radius=" + radius + '}';
 	}
 
-	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+	/*@Override
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistace) {
 		Point p0 = ray.getP0();
 		Vector v = ray.getDirection();
 		Vector u;
@@ -78,5 +78,39 @@ public class Sphere extends RadialGeometry {
 		// otherwise include both points
 		return t1 <= 0 ? List.of(new GeoPoint(this, ray.getPoint(t2)))
 				: List.of(new GeoPoint(this, ray.getPoint(t2)), new GeoPoint(this, ray.getPoint(t1)));
+	}*/
+	@Override
+	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+	    Point p0 = ray.getP0();
+	    Vector v = ray.getDirection();
+	    Vector u;
+
+	    try {
+	        u = center.subtract(p0); // p0 == center the ray starts from the center of the sphere
+	    } catch (IllegalArgumentException ignore) {
+	        return List.of(new GeoPoint(this, ray.getPoint(this.radius)));
+	    }
+
+	    double tm = v.dotProduct(u);
+	    double dSquared = u.lengthSquared() - tm * tm;
+	    double thSquared = Util.alignZero(this.radiusSquared - dSquared);
+
+	    if (thSquared <= 0 || tm <= 0 && u.length() > maxDistance)
+	        return null;
+
+	    double th = Math.sqrt(thSquared);
+	    double t2 = Util.alignZero(tm + th);
+
+	    // Ray starts at or after the sphere
+	    if (t2 <= 0 || t2 > maxDistance)
+	        return null;
+
+	    double t1 = Util.alignZero(tm - th);
+
+	    // If the first point is behind the ray - include only the 2nd point
+	    // Otherwise, include both points
+	    return t1 <= 0 ? List.of(new GeoPoint(this, ray.getPoint(t2))) :
+	            List.of(new GeoPoint(this, ray.getPoint(t2)), new GeoPoint(this, ray.getPoint(t1)));
 	}
+
 }
