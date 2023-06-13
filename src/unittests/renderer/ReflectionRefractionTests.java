@@ -109,204 +109,208 @@ public class ReflectionRefractionTests {
 				.writeToImage();
 	}
 
+	/*
+	 * @Test public void myShape3() { Camera camera = new Camera(new Point(-300, 0,
+	 * 5), new Vector(1, 0, 0), new Vector(0, 0, 1)) .setVPSize(200d,
+	 * 200).setVPDistance(1000); ;
+	 * 
+	 * scene.setAmbientLight(new AmbientLight(new Color(white).reduce(6), new
+	 * Double3(0.15)));
+	 * 
+	 * double angle = 0; double heigh = 0.8;
+	 * 
+	 * scene.geometries.add( new Plane(new Point(1, 0, -0.5), new Point(0, 1, -0.5),
+	 * new Point(0, 0, -0.5)) .setEmission(new Color(black).reduce(1.3))
+	 * .setMaterial(new
+	 * Material().setKd(0.2).setKs(0.2).setShininess(100).setKt(0).setKr(0.3))
+	 * 
+	 * 
+	 * );
+	 * 
+	 * scene.geometries.add( new Sphere(3.4, new Point(0, 0, 4)) .setEmission(new
+	 * Color(yellow).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
+	 * 
+	 * 
+	 * ); scene.geometries.add( new Sphere(3.4, new Point(0, 0, 10.2))
+	 * .setEmission(new Color(red).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
+	 * 
+	 * 
+	 * ); scene.geometries.add( new Sphere(3.4, new Point(0, 0, 16.4))
+	 * .setEmission(new Color(green).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7).setKr(0))
+	 * 
+	 * 
+	 * ); scene.geometries.add( new Sphere(3.4, new Point(0, 0, 16.4 + 6.2))
+	 * .setEmission(new Color(yellow).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
+	 * 
+	 * 
+	 * ); scene.geometries.add( new Sphere(3.4, new Point(0, 0, 16.4 + 2 * 6.2))
+	 * .setEmission(new Color(red).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
+	 * 
+	 * 
+	 * ); scene.geometries.add( new Sphere(3.4, new Point(0, 0, 16.4 + 3 * 6.2))
+	 * .setEmission(new Color(green).reduce(10)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7).setKr(0))
+	 * 
+	 * 
+	 * );
+	 * 
+	 * 
+	 * scene.geometries.add( new Plane(new Point(10, 1, -1), new Point(10, -1, -1),
+	 * new Point(10, 0, 3)) .setEmission(new Color(darkGray).reduce(15))
+	 * .setMaterial(new
+	 * Material().setKd(0.2).setKs(0.2).setShininess(80).setKt(0).setKr(0)) );
+	 * 
+	 * 
+	 * java.awt.Color[] colors = {new java.awt.Color(255, 0, 0), new
+	 * java.awt.Color(255, 255 / 2, 0), new java.awt.Color(255, 255, 0), new
+	 * java.awt.Color(0, 255, 0), new java.awt.Color(0, 255, 255 / 2), new
+	 * java.awt.Color(0, 255, 255), new java.awt.Color(0, 0, 255), new
+	 * java.awt.Color(255 / 2, 0, 255), new java.awt.Color(255, 0, 255)};
+	 * 
+	 * for (int i = 0; i < 200; ++i) { int colorIndex = i %
+	 * colors.length;//generator.nextInt(colors.length);
+	 * 
+	 * scene.geometries.add( new Sphere(0.5, new Point(4 * Math.cos(angle), 4 *
+	 * Math.sin(angle), heigh)) .setEmission(new
+	 * Color(colors[colorIndex]).reduce(2.2)) .setMaterial(new
+	 * Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.3))
+	 * 
+	 * 
+	 * );
+	 * 
+	 * //scene.lights.add(new PointLight(new Color(
+	 * colors[colorIndex]).reduce(2),new Point(3*Math.cos(angle), 3*Math.sin(angle),
+	 * heigh) ));
+	 * 
+	 * angle += 3.14 / 13;
+	 * 
+	 * heigh += 0.13;
+	 * 
+	 * 
+	 * }
+	 * 
+	 * //scene.lights.add(new PointLight(new Color(100,100,150),new Point(0,6,0) ));
+	 * scene.lightSources.add(new DirectionalLight(new Color(white).scale(1.6), new
+	 * Vector(1, -0.3, 0))); //scene.lights.add(new SpotLight(new
+	 * Color(white).scale(40), new Point(-30,0, 5) ,new Vector(1,0,0)) //
+	 * .setKc(0.5).setKq(0.1));
+	 * 
+	 * 
+	 * //scene.lights.add(new SpotLight(new Color(white).reduce(2), new
+	 * Point(20.43303,-7.37104,13.77329), new Vector(-20.43,7.37,-13.77)));
+	 * ImageWriter imageWriter = new ImageWriter("cadur", 1000, 1000);
+	 * camera.setImageWriter(imageWriter) // .setRayTracer(new
+	 * RayTracerBasic(scene)) // .renderImage() // .writeToImage();
+	 * 
+	 * }
+	 */
 
-    @Test
-    public void myShape() {
-        Camera camera = new Camera(new Point(0, -150, 0), new Vector(0, 1, 0), new Vector(0, 0, 1))
-                .setVPSize(200d, 200).setVPDistance(1000);
-        ;
+	@Test
+	public void myShape4() {
+		Camera camera = new Camera(new Point(-330, 0, 5), new Vector(1, 0, 0), new Vector(0, 0, 1)).setVPSize(200d, 200)
+				.setVPDistance(1000);
 
-        scene.setAmbientLight(new AmbientLight(new Color(gray).reduce(2), new Double3(0.15)));
-        scene.geometries.add(
+		scene.setAmbientLight(new AmbientLight(new Color(255, 255, 255).reduce(6), new Double3(0.15))).lightSources
+				.add(new SpotLight(new Color(RED), new Point(-300, 6, 10), new Vector(1, 0, 0)));
 
-                new Triangle(new Point(1, -0.2, 1.4), new Point(-1, -0.2, 1.4), new Point(0, -0.2, -0.5))
-                        .setEmission(new Color(red).scale(10))
-                        .setMaterial(new Material().setKd(0).setKs(0).setShininess(1)),
-                new Triangle(new Point(1, 0, 0), new Point(0, 0, 2), new Point(-1, 0, 0))
-                        .setEmission(new Color(red).scale(10)),
-                new Sphere(3, new Point(0, 0, 0.5)).setEmission(new Color(yellow).reduce(4))
-                        .setMaterial(new Material().setKd(0.2).setKs(0.2).setShininess(80).setKt(0.8)),
-                new Plane(new Point(-10, 0, 0), new Point(0, 20, 0), new Point(-14.85844, 20.19227, 12))
-                        .setMaterial(new Material().setKd(0.4).setKs(0.2).setShininess(100).setKr(1)).setEmission(new Color(gray).reduce(2))
-        );
+		double angle = 0;
+		double height = 0;
 
-        scene.lightSources.add(new PointLight(new Color(100, 100, 150), new Point(0, 6, 0)));
-        scene.lightSources.add(new DirectionalLight(new Color(white), new Vector(1, 0, 0)));
+		scene.geometries.add(new Plane(new Point(-4, 4, 0), new Vector(0, 0, 1))
+				.setMaterial(new Material().setKd(0.8).setKs(0.6).setShininess(100).setKt(0.7).setKr(0.5)));
 
-        scene.lightSources.add(new SpotLight(new Color(white).reduce(2), new Point(20.43303, -7.37104, 13.77329), new Vector(-20.43, 7.37, -13.77)));
-        ImageWriter imageWriter = new ImageWriter("myShape", 1000, 1000);
-        camera.setImageWriter(imageWriter) //
-                .setRayTracer(new RayTracerBasic(scene)) //
-                .renderImage() //
-                .writeToImage();
+		java.awt.Color[] colors = { YELLOW, RED, ORANGE, BLUE };
 
-    }
+		for (int i = 25; i < 200; ++i) {
+			int colorIndex = i % colors.length;
 
-    @Test
-    public void myShape2() {
-        Camera camera = new Camera(new Point(-330, 0, 5), new Vector(1, 0, 0), new Vector(0, 0, 1))
-                .setVPSize(200d, 200).setVPDistance(1000);
-        ;
+			scene.geometries
+					.add(new Sphere(0.5, new Point(i / 25.0 * Math.cos(angle), i / 25.0 * Math.sin(angle), height))
+							.setEmission(new Color(colors[colorIndex]).reduce(2.2))
+							.setMaterial(new Material().setKd(0.5).setKs(0.5).setShininess(80).setKt(0.3)));
 
-        scene.setAmbientLight(new AmbientLight(new Color(white).reduce(6), new Double3(0.15)));
+			angle += Math.PI / 15.0;
+			height += 0.15;
+		}
 
-        double angle = 0;
-        double heigh = 0;
+		java.awt.Color[] colors2 = { BLUE, GREEN, PINK, BLACK, RED, GRAY };
 
+		height = 10;
+		for (int i = 25; i < 100; ++i) {
+			int colorIndex = i % colors2.length;
 
-        Random generator = new Random();
-        scene.geometries.add(
-                new Polygon(new Vector(-4, 4, 0), new Vector(-4, -4, 0), new Point(-4, -4, 25), new Point(-4, 4, 25))
+			scene.geometries.add(new Sphere(0.3, new Point(i / 25.0 * Math.cos(angle), i * Math.sin(angle), height))
+					.setEmission(new Color(colors2[colorIndex]).reduce(2.2))
+					.setMaterial(new Material().setKd(0.5).setKs(0.5).setShininess(80).setKt(0.3)));
 
-                        .setMaterial(new Material().setKd(0.2).setKs(0.5).setShininess(80).setKt(0.6).setKr(0))
+			angle += Math.PI / 30.0;
+			height += 0.5;
+		}
 
+		height = 10;
+		for (int i = 25; i < 300; ++i) {
 
-        );
+			scene.geometries.add(new Sphere(0.05, new Point(i / 25.0 * Math.cos(angle), i * Math.sin(angle), height))
+					.setEmission(new Color(WHITE))
+					.setMaterial(new Material().setKd(1).setKs(1).setShininess(100).setKt(1)));
 
+			angle += Math.PI / 60.0;
+			height += 0.1 % 50;
+		}
 
-        java.awt.Color[] colors = {yellow, red, orange, blue};
-        for (int i = 25; i < 200; ++i) {
-            int colorIndex = i % colors.length;//generator.nextInt(colors.length);
+		scene.lightSources
+				.add(new SpotLight(new Color(255, 255, 255).reduce(2), new Point(-150, 0, 5), new Vector(1, 0, 0)));
 
-            scene.geometries.add(
-                    new Sphere(0.5, new Point(i / 25 * Math.cos(angle), i / 25 * Math.sin(angle), heigh))
-                            .setEmission(new Color(colors[colorIndex]).reduce(2.2))
-                            .setMaterial(new Material().setKd(0.5).setKs(0.5).setShininess(80).setKt(0.3))
+		scene.lightSources.add(new SpotLight(new Color(GREEN).reduce(2), new Point(50, 0, 5), new Vector(1, 0, 0)));
 
+		scene.setBackground(new Color(BLUE).reduce(TRANSLUCENT));
 
-            );
+		ImageWriter imageWriter = new ImageWriter("myShape4", 3000, 3000);
+		camera.setImageWriter(imageWriter).setRayTracer(new RayTracerBasic(scene)).renderImage().writeToImage();
+	}
 
-            //scene.lights.add(new PointLight(new Color( colors[colorIndex]).reduce(2),new Point(3*Math.cos(angle),  3*Math.sin(angle), heigh) ));
+	@Test
+	public void myShape5() {
+		Camera camera = new Camera(new Point(-350, 0, 5), new Vector(1, 0, 0), new Vector(0, 0, 1)).setVPSize(200d, 200)
+				.setVPDistance(1000);
 
-            angle += 3.14 / 15;
+		scene.setAmbientLight(new AmbientLight(new Color(255, 255, 255).reduce(6), new Double3(0.15)));
 
-            heigh += 0.15;
+		double angle = 0;
+		double height = 0;
 
+		scene.geometries.add(new Plane(new Point(-4, 4, 0), new Vector(0, 0, 1))
+				.setMaterial(new Material().setKd(0.2).setKs(0.5).setShininess(80).setKt(0.6).setKr(0)));
 
-        }
+		java.awt.Color[] colors = { new java.awt.Color(255, 0, 0), new java.awt.Color(255, 255 / 2, 0),
+				new java.awt.Color(255, 255, 0), new java.awt.Color(0, 255, 0), new java.awt.Color(0, 255, 255 / 2),
+				new java.awt.Color(0, 255, 255), new java.awt.Color(0, 0, 255), new java.awt.Color(255 / 2, 0, 255),
+				new java.awt.Color(255, 0, 255) };
 
-        //scene.lights.add(new PointLight(new Color(100,100,150),new Point(0,6,0) ));
-        scene.lightSources.add(new SpotLight(new Color(white).reduce(2), new Point(-150, 0, 5), new Vector(1, 0, 0)));
-        //scene.lights.add(new SpotLight(new Color(white).scale(40), new Point(-30,0, 5) ,new Vector(1,0,0))
-        //		.setKc(0.5).setKq(0.1));
+		for (int i = 0; i < 200; ++i) {
+			int colorIndex = i % colors.length;
 
-        scene.setBackground(new Color(gray));
-        //scene.lights.add(new SpotLight(new Color(white).reduce(2), new Point(20.43303,-7.37104,13.77329), new Vector(-20.43,7.37,-13.77)));
-        ImageWriter imageWriter = new ImageWriter("Shape", 1000, 1000);
-        camera.setImageWriter(imageWriter) //
-                .setRayTracer(new RayTracerBasic(scene)) //
-                .renderImage() //
-                .writeToImage();
+			scene.geometries
+					.add(new Sphere(0.5, new Point(i / 25.0 * Math.cos(angle), i / 25.0 * Math.sin(angle), height))
+							.setEmission(new Color(colors[colorIndex]).reduce(2.2))
+							.setMaterial(new Material().setKd(0.5).setKs(0.5).setShininess(80).setKt(0.3)));
 
-    }
+			angle += Math.PI / 15.0;
+			height += 0.15;
+		}
 
-    @Test
-    public void myShape3() {
-        Camera camera = new Camera(new Point(-300, 0, 5), new Vector(1, 0, 0), new Vector(0, 0, 1))
-                .setVPSize(200d, 200).setVPDistance(1000);
-        ;
+		scene.lightSources
+				.add(new SpotLight(new Color(255, 255, 255).reduce(2), new Point(-150, 0, 5), new Vector(1, 0, 0)));
 
-        scene.setAmbientLight(new AmbientLight(new Color(white).reduce(6), new Double3(0.15)));
+		scene.setBackground(new Color(128, 128, 128));
 
-        double angle = 0;
-        double heigh = 0.8;
-
-        scene.geometries.add(
-                new Plane(new Point(1, 0, -0.5), new Point(0, 1, -0.5), new Point(0, 0, -0.5))
-                        .setEmission(new Color(black).reduce(1.3))
-                        .setMaterial(new Material().setKd(0.2).setKs(0.2).setShininess(100).setKt(0).setKr(0.3))
-
-
-        );
-
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 4))
-                        .setEmission(new Color(yellow).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
-
-
-        );
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 10.2))
-                        .setEmission(new Color(red).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
-
-
-        );
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 16.4))
-                        .setEmission(new Color(green).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7).setKr(0))
-
-
-        );
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 16.4 + 6.2))
-                        .setEmission(new Color(yellow).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
-
-
-        );
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 16.4 + 2 * 6.2))
-                        .setEmission(new Color(red).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7))
-
-
-        );
-        scene.geometries.add(
-                new Sphere(3.4, new Point(0, 0, 16.4 + 3 * 6.2))
-                        .setEmission(new Color(green).reduce(10))
-                        .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.7).setKr(0))
-
-
-        );
-
-
-        scene.geometries.add(
-                new Plane(new Point(10, 1, -1), new Point(10, -1, -1), new Point(10, 0, 3))
-                        .setEmission(new Color(darkGray).reduce(15))
-                        .setMaterial(new Material().setKd(0.2).setKs(0.2).setShininess(80).setKt(0).setKr(0))
-        );
-
-
-        java.awt.Color[] colors = {new java.awt.Color(255, 0, 0), new java.awt.Color(255, 255 / 2, 0), new java.awt.Color(255, 255, 0),
-                new java.awt.Color(0, 255, 0), new java.awt.Color(0, 255, 255 / 2), new java.awt.Color(0, 255, 255),
-                new java.awt.Color(0, 0, 255), new java.awt.Color(255 / 2, 0, 255), new java.awt.Color(255, 0, 255)};
-
-        for (int i = 0; i < 200; ++i) {
-            int colorIndex = i % colors.length;//generator.nextInt(colors.length);
-
-            scene.geometries.add(
-                    new Sphere(0.5, new Point(4 * Math.cos(angle), 4 * Math.sin(angle), heigh))
-                            .setEmission(new Color(colors[colorIndex]).reduce(2.2))
-                            .setMaterial(new Material().setKd(0.2).setKs(1).setShininess(80).setKt(0.3))
-
-
-            );
-
-            //scene.lights.add(new PointLight(new Color( colors[colorIndex]).reduce(2),new Point(3*Math.cos(angle),  3*Math.sin(angle), heigh) ));
-
-            angle += 3.14 / 13;
-
-            heigh += 0.13;
-
-
-        }
-
-        //scene.lights.add(new PointLight(new Color(100,100,150),new Point(0,6,0) ));
-        scene.lightSources.add(new DirectionalLight(new Color(white).scale(1.6), new Vector(1, -0.3, 0)));
-        //scene.lights.add(new SpotLight(new Color(white).scale(40), new Point(-30,0, 5) ,new Vector(1,0,0))
-        //		.setKc(0.5).setKq(0.1));
-
-
-        //scene.lights.add(new SpotLight(new Color(white).reduce(2), new Point(20.43303,-7.37104,13.77329), new Vector(-20.43,7.37,-13.77)));
-        ImageWriter imageWriter = new ImageWriter("cadur", 15000, 15000);
-        camera.setImageWriter(imageWriter) //
-                .setRayTracer(new RayTracerBasic(scene)) //
-                .renderImage() //
-                .writeToImage();
-
-    }
+		ImageWriter imageWriter = new ImageWriter("myShape5", 1000, 1000);
+		camera.setImageWriter(imageWriter).setRayTracer(new RayTracerBasic(scene)).renderImage().writeToImage();
+	}
 
 }
