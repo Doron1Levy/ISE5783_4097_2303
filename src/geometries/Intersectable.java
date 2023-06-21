@@ -94,5 +94,5 @@ public abstract class Intersectable {
 	 * @return The list of geometric intersection points, or null if no
 	 *         intersections occur.
 	 */
-	public abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance);
+	protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance);
 }

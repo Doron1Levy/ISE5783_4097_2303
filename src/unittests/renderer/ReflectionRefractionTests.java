@@ -5,17 +5,13 @@ import static java.awt.Color.*;
 import org.junit.jupiter.api.Test;
 
 import geometries.Plane;
-import geometries.Polygon;
 import geometries.Sphere;
 import geometries.Triangle;
 import lighting.AmbientLight;
-import lighting.DirectionalLight;
-import lighting.PointLight;
 import lighting.SpotLight;
 import primitives.*;
 import renderer.*;
 import scene.Scene;
-import java.util.Random;
 
 /**
  * Tests for reflection and transparency functionality, test for partial shadows
@@ -270,7 +266,7 @@ public class ReflectionRefractionTests {
 
 		scene.setBackground(new Color(BLUE).reduce(TRANSLUCENT));
 
-		ImageWriter imageWriter = new ImageWriter("myShape4", 3000, 3000);
+		ImageWriter imageWriter = new ImageWriter("myShape4", 500, 500);
 		camera.setImageWriter(imageWriter).setRayTracer(new RayTracerBasic(scene)).renderImage().writeToImage();
 	}
 
@@ -309,7 +305,7 @@ public class ReflectionRefractionTests {
 
 		scene.setBackground(new Color(128, 128, 128));
 
-		ImageWriter imageWriter = new ImageWriter("myShape5", 1000, 1000);
+		ImageWriter imageWriter = new ImageWriter("myShape5", 500, 500);
 		camera.setImageWriter(imageWriter).setRayTracer(new RayTracerBasic(scene)).renderImage().writeToImage();
 	}
 

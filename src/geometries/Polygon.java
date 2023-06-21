@@ -89,7 +89,7 @@ public class Polygon extends Geometry {
 	}
 
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistace) {
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistace) {
 		return null;
 	}
 }

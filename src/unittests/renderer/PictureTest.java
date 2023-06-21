@@ -5,9 +5,7 @@ import geometries.*;
 import lighting.*;
 import org.junit.jupiter.api.Test;
 import primitives.*;
-import renderer.ImageWriter;
-import renderer.RayTracerBasic;
-import renderer.Camera;
+import renderer.*;
 import scene.*;
 
 import java.util.LinkedList;
@@ -19,7 +17,7 @@ public class PictureTest {
 
          List<Sphere> balls = new LinkedList<>();
 
-        Material material = new Material().setKd(0.4).setKs(1).setShininess(50).setKt(0).setKr(0.5).setKs(0.5);
+        //Material material = new Material().setKd(0.4).setKs(1).setShininess(50).setKt(0).setKr(0.5).setKs(0.5);
         Material material1 = new Material().setKd(0.4).setKs(1).setShininess(100).setKt(0).setKr(0.9);
 
 
@@ -30,8 +28,9 @@ public class PictureTest {
         }
         return balls;
     }
+    
     @Test
-    public void PictureTest() {
+    public void pictureTest() {
         Scene scene = new Scene("final picture").setBackground(new Color(0,0,0));
         Camera camera = new Camera(new Point(0, -600, 10), new Vector(0, 1, 0), new Vector(0, 0, 1));
         camera.setVPSize(150, 150).setVPDistance(100);
@@ -116,10 +115,9 @@ public class PictureTest {
         scene.geometries.add(pln, sphere);
         for (Sphere item : balls) {
             scene.geometries.add(item);
-
         }
 
-        camera.setImageWriter(new ImageWriter("final picture", 2000, 2000))
+        camera.setImageWriter(new ImageWriter("final picture", 500, 500))
                 .setRayTracer(new RayTracerBasic (scene))
                 .renderImage()
                 .writeToImage();

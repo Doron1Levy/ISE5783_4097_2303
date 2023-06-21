@@ -12,7 +12,7 @@ import primitives.Ray;
  */
 public class Geometries extends Intersectable {
 
-	private List<Intersectable> geometList = new LinkedList<Intersectable>();
+	private List<Intersectable> geometList = new LinkedList<>();
 
 	/**
 	 * The default constructor (the list will be empty)
@@ -41,18 +41,18 @@ public class Geometries extends Intersectable {
 	}
 
 	@Override
-	public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance) {
 		List<GeoPoint> intersectionList = null;
 
 		// find all intersection between all geometries list and ray
 		for (Intersectable geometry : this.geometList) {
-			var tempIntersections = geometry.findGeoIntersections(ray,distance);
+			var tempIntersections = geometry.findGeoIntersections(ray, distance);
 
-			if (tempIntersections != null && !tempIntersections.isEmpty()) {
+			if (tempIntersections != null) {
 				if (intersectionList == null)
-					intersectionList = new LinkedList<>();
-
-				intersectionList.addAll(tempIntersections);
+					intersectionList = new LinkedList<>(tempIntersections);
+				else
+					intersectionList.addAll(tempIntersections);
 			}
 		}
 		return intersectionList;
