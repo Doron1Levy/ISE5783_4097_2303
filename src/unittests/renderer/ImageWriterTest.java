@@ -3,6 +3,7 @@ package unittests.renderer;
 import renderer.ImageWriter;
 import org.junit.jupiter.api.Test;
 import primitives.Color;
+import static primitives.Util.*;
 
 /**
  * test class to check all function of Image Writer class

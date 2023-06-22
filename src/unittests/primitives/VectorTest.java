@@ -44,7 +44,7 @@ class VectorTest {
 		assertEquals(-3, vec3.dotProduct(vec4), "ERROR: TC:03");
 		// TC:04 Inverted vector
 		assertEquals(-14, vec1.dotProduct(vec5), "ERROR: TC:04");
-		
+
 		// =============== Boundary Values Tests ==================
 		// TC:11 Orthogonal angle
 		assertEquals(0, vec1.dotProduct(vec4), "ERROR:  TC:11");

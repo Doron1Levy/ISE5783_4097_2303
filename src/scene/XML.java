@@ -56,7 +56,6 @@ public class XML {
 		// Create a new Geometries object to store the parsed geometries
 		Geometries geometries = new Geometries();
 
-		
 		// Iterate over the geometry elements and parse each geometry based on its type
 		for (int i = 0; i < geometryNodes.getLength(); i++) {
 			Element geometryElement = (Element) geometryNodes.item(i);

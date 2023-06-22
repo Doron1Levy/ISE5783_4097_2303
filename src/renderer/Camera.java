@@ -231,6 +231,31 @@ public class Camera {
 		int nx = imageWriter.getNx();
 		int ny = imageWriter.getNy();
 
+		if (Util.MULTY_THREAD) {
+			double printInterval = 0.1;
+			int threadsCount = 3;
+
+			// loop on all pixels
+			Pixel.initialize(ny, nx, printInterval);
+
+			// loop over all pixels
+
+			while (threadsCount-- > 0) {
+				new Thread(() -> {
+					for (Pixel pixel = new Pixel(); pixel.nextPixel(); Pixel.pixelDone()) {
+						// castRay(nX, nY, pixel.col, pixel.row);
+						// construct ray and send to ray tracer to get color
+						var color = rayTracer.traceRay(constructRay(nx, ny, pixel.col, pixel.row));
+						// write the color in point J,I
+						this.imageWriter.writePixel(pixel.col, pixel.row, color);
+					}
+				}).start();
+			}
+			Pixel.waitToFinish();
+
+			return this;
+		}
+
 		// loop over all pixels
 		for (int i = 0; i < ny; ++i) {
 			for (int j = 0; j < nx; ++j) {

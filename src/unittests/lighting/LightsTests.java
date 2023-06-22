@@ -270,8 +270,9 @@ public class LightsTests {
 
 		scene1.lightSources.add(new SpotLight(spCL, spPL, new Vector(1, 1, -0.5)).setKl(0.001).setKq(0.0001));
 
-		scene1.lightSources.add(new SpotLight(new Color(green).scale(3), new Point(50, 50, 25), new Vector(-1, -1, -0.5))
-				.setKl(0.001).setKq(0.0001));
+		scene1.lightSources
+				.add(new SpotLight(new Color(green).scale(3), new Point(50, 50, 25), new Vector(-1, -1, -0.5))
+						.setKl(0.001).setKq(0.0001));
 
 		ImageWriter imageWriter = new ImageWriter("sphereMultiLight2", 500, 500);
 		camera1.setImageWriter(imageWriter) //

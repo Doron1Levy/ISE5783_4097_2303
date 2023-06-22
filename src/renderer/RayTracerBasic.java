@@ -261,6 +261,11 @@ public class RayTracerBasic extends RayTracerBase {
 		return ray.findClosestGeoPoint(scene.geometries.findGeoIntersections(ray));
 	}
 
+	/*
+	 * private Color softShadow(List<Ray> rays, int numOfRays) { int sum = 0; for
+	 * (Ray ray : rays) { } }
+	 */
+
 	/**
 	 * get list of ray
 	 * 

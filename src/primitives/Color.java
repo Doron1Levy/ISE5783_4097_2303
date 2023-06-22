@@ -129,7 +129,7 @@ public class Color {
 	 * Scale the color by (1 / reduction factor)
 	 * 
 	 * @param k reduction factor
-	 * @return new Color object which is the result of the operation
+	 * @return new Color object which is the result of t/he operation
 	 */
 	public Color reduce(Double3 k) {
 		if (k.d1 < 1.0 || k.d2 < 1.0 || k.d3 < 1.0)

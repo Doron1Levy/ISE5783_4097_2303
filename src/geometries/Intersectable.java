@@ -4,12 +4,16 @@ import java.util.List;
 
 import primitives.Point;
 import primitives.Ray;
+import primitives.BoundingBox;
 
 /**
  * Interface for objects that can be intersected by a ray.
  */
 public abstract class Intersectable {
 
+	
+    protected BoundingBox boundingBox = new BoundingBox();
+	
 	/**
 	 * Represents a point on a geometry shape along with the geometry itself.
 	 */
@@ -24,7 +28,7 @@ public abstract class Intersectable {
 		 * The point on the geometry shape.
 		 */
 		public Point point;
-
+		
 		/**
 		 * Constructs a GeoPoint object with the specified geometry and point.
 		 *
@@ -76,7 +80,7 @@ public abstract class Intersectable {
 	 * Finds the geometric intersection points between the geometry object and a
 	 * ray, up to a maximum distance.
 	 *
-	 * @param ray      The ray to intersect.
+	 * @param ray         The ray to intersect.
 	 * @param maxDistance The maximum distance to consider for intersections.
 	 * @return The list of geometric intersection points, or null if no
 	 *         intersections occur.
