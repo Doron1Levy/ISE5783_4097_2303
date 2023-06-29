@@ -82,6 +82,10 @@ public class Plane extends Geometry {
 
 	@Override
 	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+
+		if ( !this.boundingBox.intersectionBox(ray))
+			return null;
+
 		Point rayP0 = ray.getP0();
 		Vector rayDirection = ray.getDirection();
 

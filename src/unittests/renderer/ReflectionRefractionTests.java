@@ -211,7 +211,7 @@ public class ReflectionRefractionTests {
 		scene.lightSources.add(new SpotLight(new Color(white).reduce(2), new Point(20.43303, -7.37104, 13.77329),
 				new Vector(-20.43, 7.37, -13.77)).setKl(0.6));
 
-		ImageWriter imageWriter = new ImageWriter("blurryGlass2", 1000, 1000);
+		ImageWriter imageWriter = new ImageWriter("blurryGlass2", 500, 500);
 		camera.setImageWriter(imageWriter) //
 				.setRayTracer(new RayTracerBasic(scene)) //
 				.renderImage() //

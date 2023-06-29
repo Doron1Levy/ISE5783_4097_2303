@@ -47,7 +47,6 @@ public class Point {
 	public double getY() {
 		return xyz.d2;
 	}
-	
 
 	/**
 	 * Getter for z coordinate

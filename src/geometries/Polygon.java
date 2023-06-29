@@ -1,5 +1,6 @@
 package geometries;
 
+import static primitives.Util.BOUNDINGBOX;
 import static primitives.Util.isZero;
 
 import java.util.List;
@@ -83,43 +84,42 @@ public class Polygon extends Geometry {
 				throw new IllegalArgumentException("All vertices must be ordered and the polygon must be convex");
 		}
 
-        //build a bounding box
-        //search in all vertices
-        //for the min and max X,Y,Z
-        double xMax = Double.NEGATIVE_INFINITY;
-        double xMin = Double.MAX_VALUE;
+		// build a bounding box
+		// search in all vertices
+		// for the min and max X,Y,Z
+		double xMax = Double.NEGATIVE_INFINITY;
+		double xMin = Double.MAX_VALUE;
 
-        double yMax = Double.NEGATIVE_INFINITY;
-        double yMin = Double.MAX_VALUE;
+		double yMax = Double.NEGATIVE_INFINITY;
+		double yMin = Double.MAX_VALUE;
 
-        double zMax = Double.NEGATIVE_INFINITY;
-        double zMin = Double.MAX_VALUE;
+		double zMax = Double.NEGATIVE_INFINITY;
+		double zMin = Double.MAX_VALUE;
 
+		for (Point p : vertices) {
 
-        for (Point p : vertices) {
+			// check x
+			if (p.getX() < xMin)
+				xMin = p.getX();
 
-            //check x
-            if (p.getX() < xMin)
-                xMin = p.getX();
+			if (p.getX() > xMax)
+				xMax = p.getX();
 
-            if (p.getX() > xMax)
-                xMax = p.getX();
+			// check y
+			if (p.getY() < yMin)
+				yMin = p.getY();
 
-             //check y
-            if (p.getY() < yMin)
-                yMin = p.getY();
+			if (p.getY() > yMax)
+				yMax = p.getY();
 
-            if (p.getY() > yMax)
-                yMax = p.getY();
+			// check z
+			if (p.getZ() < zMin)
+				zMin = p.getZ();
 
-            //check z
-            if (p.getZ() < zMin)
-                zMin = p.getZ();
-
-            if (p.getZ() > zMax)
-                zMax = p.getZ();
-        }
-        boundingBox = new BoundingBox(new Point(xMin,yMin,zMin), new Point(xMax,yMax,zMax));
+			if (p.getZ() > zMax)
+				zMax = p.getZ();
+		}
+		boundingBox = new BoundingBox(new Point(xMin, yMin, zMin), new Point(xMax, yMax, zMax));
 	}
 
 	@Override
@@ -128,49 +128,50 @@ public class Polygon extends Geometry {
 	}
 
 	@Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 
-        if(!boundingBox.intersectionBox(ray))
-            return null;
+		if (!this.boundingBox.intersectionBox(ray))
+			return null;
 
+		// get Intersections of plane
+		List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray, maxDistance);
+		if (planeIntersections == null)
+			return null;
 
+		Point p0 = ray.getP0();
+		Vector rayDir = ray.getDirection();
 
-        //get Intersections of plane
-        List<GeoPoint> planeIntersections = plane.findGeoIntersections(ray, maxDistance);
-        if (planeIntersections == null) return null;
+		// all the vectors ( (v1-p0)x(v2-p0) ) * (ray dir) should be the same signe
+		// else the ray outside the polygon
 
-        Point p0 = ray.getP0();
-        Vector rayDir = ray.getDirection();
+		// first check the sign of dot product the last and the first
+		Vector v1 = vertices.get(0).subtract(p0);
+		Vector v2 = vertices.get(vertices.size() - 1).subtract(p0);
 
-        //all the vectors ( (v1-p0)x(v2-p0) ) * (ray dir)  should be the same signe
-        // else the ray outside the polygon
+		double s1 = rayDir.dotProduct(v2.crossProduct(v1));
 
-        //first check the sign of dot product the last and the first
-        Vector v1 = vertices.get(0).subtract(p0);
-        Vector v2 = vertices.get(vertices.size() - 1).subtract(p0);
+		// if the ray cross in the edge of the polygon
+		if (isZero(s1))
+			return null;
 
-        double s1 = rayDir.dotProduct(v2.crossProduct(v1));
+		// keep the next product
+		double s2;
+		for (var vertex : vertices.subList(1, vertices.size())) {
 
-        //if the ray cross in the edge of the polygon
-        if (isZero(s1)) return null;
+			v2 = vertex.subtract(p0);
+			s2 = rayDir.dotProduct(v1.crossProduct(v2));
 
-        //keep the next product
-        double s2;
-        for (var vertex : vertices.subList(1, vertices.size())) {
+			// if the ray cross in the edge of the polygon
+			if (isZero(s2))
+				return null;
 
-            v2 = vertex.subtract(p0);
-            s2 = rayDir.dotProduct(v1.crossProduct(v2));
+			// if they not the same sign
+			if (s1 * s2 < 0)
+				return null;
 
-            //if the ray cross in the edge of the polygon
-            if (isZero(s2)) return null;
+			v1 = v2;
+		}
 
-            //if they not the same sign
-            if (s1 * s2 < 0)
-                return null;
-
-            v1 = v2;
-        }
-
-        return planeIntersections.stream().map(gp -> new GeoPoint(this, gp.point)).toList();
-    }
+		return planeIntersections.stream().map(gp -> new GeoPoint(this, gp.point)).toList();
+	}
 }

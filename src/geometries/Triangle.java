@@ -24,6 +24,10 @@ public class Triangle extends Polygon {
 
 	@Override
 	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+
+		if (!this.boundingBox.intersectionBox(ray))
+			return null;
+
 		var intersection = plane.findGeoIntersectionsHelper(ray, maxDistance);
 		if (intersection == null) // the plane of the triangle is not intersected
 			return null;

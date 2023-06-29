@@ -27,8 +27,9 @@ public class Sphere extends RadialGeometry {
 	public Sphere(double radius, Point center) {
 		super(radius);
 		this.center = center;
-		
-        this.boundingBox = new BoundingBox(center.add(new Vector(1,1,1).scale(radius)),center.add(new Vector(-1,-1,-1).scale(radius)));
+
+		this.boundingBox = new BoundingBox(center.add(new Vector(1, 1, 1).scale(radius)),
+				center.add(new Vector(-1, -1, -1).scale(radius)));
 	}
 
 	/**
@@ -52,10 +53,10 @@ public class Sphere extends RadialGeometry {
 
 	@Override
 	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
-		
-	     if(!this.boundingBox.intersectionBox(ray))
-	            return null;
-		
+
+		if (!this.boundingBox.intersectionBox(ray))
+			return null;
+
 		Point p0 = ray.getP0();
 		Vector v = ray.getDirection();
 		Vector u;

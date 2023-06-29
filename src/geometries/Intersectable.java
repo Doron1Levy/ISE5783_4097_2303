@@ -11,9 +11,8 @@ import primitives.BoundingBox;
  */
 public abstract class Intersectable {
 
-	
-    protected BoundingBox boundingBox = new BoundingBox();
-	
+	protected BoundingBox boundingBox = new BoundingBox();
+
 	/**
 	 * Represents a point on a geometry shape along with the geometry itself.
 	 */
@@ -28,7 +27,7 @@ public abstract class Intersectable {
 		 * The point on the geometry shape.
 		 */
 		public Point point;
-		
+
 		/**
 		 * Constructs a GeoPoint object with the specified geometry and point.
 		 *

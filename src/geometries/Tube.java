@@ -64,6 +64,9 @@ public class Tube extends RadialGeometry {
 	@Override
 	protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 
+		if ( !this.boundingBox.intersectionBox(ray))
+			return null;
+
 		// Extract the origin and direction of the ray
 		Point rayOrigin = ray.getP0();
 		Vector rayDirection = ray.getDirection();

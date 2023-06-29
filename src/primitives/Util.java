@@ -12,8 +12,9 @@ public abstract class Util {
 	private static final int ACCURACY = -40;
 
 	private static Random random = new Random();
-	
-	public static boolean MULTY_THREAD;
+
+	public static boolean MULTY_THREAD = false;
+	public static boolean BOUNDINGBOX = true;
 
 	/**
 	 * Empty private constructor to hide the public one
